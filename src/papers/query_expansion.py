@@ -27,45 +27,45 @@ def _keywords(topic: str) -> List[str]:
 
 def expand_queries(topic: str, *, max_queries: int = 8) -> List[str]:
     """
-    Deterministic query expansion:
-    - Keeps original topic
-    - Adds domain synonyms and common sub-phrases
-    """
-    kws = _keywords(topic)
-    base = " ".join(kws[:10]) if kws else topic
+    Topic-agnostic deterministic query expansion.
 
-    privacy_terms = [
-        "privacy-preserving",
-        "privacy",
-        "anonymized",
-        "de-identification",
-        "on-device",
-        "federated",
-    ]
-    vision_terms = [
-        "computer vision",
-        "vision-based",
-        "pose estimation",
-        "skeleton-based",
-        "keypoint-based",
-        "optical flow",
-        "RGB-D",
-        "depth camera",
-    ]
-    eval_terms = ["edge AI", "real-time", "lightweight", "latency", "resource-constrained", "mobile inference"]
+    Goals:
+    - Keep the original topic
+    - Generate a small set of diverse, search-friendly variants
+    - Avoid hardcoding to a single domain (e.g., fall detection)
+    """
+    cleaned_topic = " ".join((topic or "").split()).strip()
+    kws = _keywords(cleaned_topic)
+    base = " ".join(kws[:12]) if kws else cleaned_topic
 
     queries: List[str] = []
-    queries.append(topic.strip())
+    if cleaned_topic:
+        queries.append(cleaned_topic)
 
-    # Common expansions for assistive-care fall detection topics
-    queries.append(f"{base} privacy-preserving fall detection computer vision")
-    queries.append(f"{base} skeleton-based fall detection elderly care")
-    queries.append(f"{base} pose estimation fall detection elderly")
-    queries.append(f"{base} optical flow fall detection")
-    queries.append(f"{base} lightweight fall detection edge AI")
-    queries.append(f"{base} RGB-D fall detection deep learning")
-    queries.append(f"{base} vision-based fall detection privacy")
-    queries.append(f"{base} human activity recognition fall detection elderly")
+    # Generic research-intent variants
+    if base:
+        queries.extend(
+            [
+                f"{base} recent papers",
+                f"{base} survey review",
+                f"{base} benchmark dataset",
+                f"{base} evaluation metrics",
+                f"{base} limitations",
+                f"{base} state of the art",
+                f"{base} method approach",
+            ]
+        )
+
+    # Light expansions based on detected cues (still generic)
+    t = cleaned_topic.lower()
+    if any(x in t for x in ["privacy", "private", "anonym", "federated", "encrypted"]):
+        queries.append(f"{base} privacy-preserving")
+    if any(x in t for x in ["edge", "on-device", "mobile", "embedded", "iot", "real-time", "realtime"]):
+        queries.append(f"{base} edge deployment latency")
+    if any(x in t for x in ["vision", "image", "video", "camera", "cv"]):
+        queries.append(f"{base} computer vision")
+    if any(x in t for x in ["nlp", "language", "text", "llm", "transformer"]):
+        queries.append(f"{base} natural language processing")
 
     # De-dup while preserving order
     seen = set()

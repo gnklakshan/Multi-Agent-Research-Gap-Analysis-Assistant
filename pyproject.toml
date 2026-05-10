@@ -26,9 +26,7 @@ dependencies = [
 packages = ["src"]
 
 [project.optional-dependencies]
-dev = [
-    "pytest",
-]
+dev = []
 
 [build-system]
 requires = ["hatchling"]

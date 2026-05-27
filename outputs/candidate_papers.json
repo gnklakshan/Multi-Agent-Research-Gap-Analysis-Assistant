@@ -1,0 +1,891 @@
+[
+  {
+    "paperId": "41dff331e3bb905c148cf7594428351b240794a6",
+    "externalIds": {
+      "ArXiv": "2511.22554",
+      "DBLP": "journals/corr/abs-2511-22554",
+      "DOI": "10.48550/arXiv.2511.22554",
+      "CorpusId": 283438280
+    },
+    "url": "https://www.semanticscholar.org/paper/41dff331e3bb905c148cf7594428351b240794a6",
+    "title": "Privacy-preserving fall detection at the edge using Sony IMX636 event-based vision sensor and Intel Loihi 2 neuromorphic processor",
+    "venue": "arXiv.org",
+    "year": 2025,
+    "citationCount": 0,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2511.22554, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2025-11-27",
+    "authors": [
+      {
+        "authorId": "2276205108",
+        "name": "Lyes Khacef"
+      },
+      {
+        "authorId": "2322438291",
+        "name": "Philipp Weidel"
+      },
+      {
+        "authorId": "2395534623",
+        "name": "Susumu Hogyoku"
+      },
+      {
+        "authorId": "2109501434",
+        "name": "Harry Liu"
+      },
+      {
+        "authorId": "2404480927",
+        "name": "Claire Alexandra Bräuer"
+      },
+      {
+        "authorId": "2106693778",
+        "name": "Shunsuke Koshino"
+      },
+      {
+        "authorId": "2395534709",
+        "name": "Takeshi Oyakawa"
+      },
+      {
+        "authorId": "2395537297",
+        "name": "Vincent Parret"
+      },
+      {
+        "authorId": "2395536489",
+        "name": "Yoshitaka Miyatani"
+      },
+      {
+        "authorId": "2302867466",
+        "name": "M. Davies"
+      },
+      {
+        "authorId": "2263911843",
+        "name": "Mathis Richter"
+      }
+    ],
+    "abstract": "Fall detection for elderly care using non-invasive vision-based systems remains an important yet unsolved problem. Driven by strict privacy requirements, inference must run at the edge of the vision sensor, demanding robust, real-time, and always-on perception under tight hardware constraints. To address these challenges, we propose a neuromorphic fall detection system that integrates the Sony IMX636 event-based vision sensor with the Intel Loihi 2 neuromorphic processor via a dedicated FPGA-based interface, leveraging the sparsity of event data together with near-memory asynchronous processing. Using a newly recorded dataset under diverse environmental conditions, we explore the design space of sparse neural networks deployable on a single Loihi 2 chip and analyze the tradeoffs between detection F1 score and computational cost. Notably, on the Pareto front, our LIF-based convolutional SNN with graded spikes achieves the highest computational efficiency, reaching a 55x synaptic operations sparsity for an F1 score of 58%. The LIF with graded spikes shows a gain of 6% in F1 score with 5x less operations compared to binary spikes. Furthermore, our MCUNet feature extractor with patched inference, combined with the S4D state space model, achieves the highest F1 score of 84% with a synaptic operations sparsity of 2x and a total power consumption of 90 mW on Loihi 2. Overall, our smart security camera proof-of-concept highlights the potential of integrating neuromorphic sensing and processing for edge AI applications where latency, energy consumption, and privacy are critical.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "9f471532593a9258bbe0c51c5ef0fe4fb541fff4",
+    "externalIds": {
+      "DBLP": "conf/icvgip/PrasadMKBS023",
+      "DOI": "10.1145/3627631.3627650",
+      "CorpusId": 267365816
+    },
+    "url": "https://www.semanticscholar.org/paper/9f471532593a9258bbe0c51c5ef0fe4fb541fff4",
+    "title": "Hybrid SNN-based Privacy-Preserving Fall Detection using Neuromorphic Sensors",
+    "venue": "Indian Conference on Computer Vision, Graphics & Image Processing",
+    "year": 2023,
+    "citationCount": 11,
+    "openAccessPdf": {
+      "url": "",
+      "status": "CLOSED",
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1145/3627631.3627650?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1145/3627631.3627650, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle",
+      "Book"
+    ],
+    "publicationDate": "2023-12-15",
+    "authors": [
+      {
+        "authorId": "2072410853",
+        "name": "Shyam Sunder Prasad"
+      },
+      {
+        "authorId": "2159357308",
+        "name": "Naval Kishore Mehta"
+      },
+      {
+        "authorId": "2206707016",
+        "name": "Himanshu Kumar"
+      },
+      {
+        "authorId": "2180660740",
+        "name": "Abeer Banerjee"
+      },
+      {
+        "authorId": "3217069",
+        "name": "Sumeet Saurav"
+      },
+      {
+        "authorId": "2240859994",
+        "name": "Sanjay Singh"
+      }
+    ],
+    "abstract": "Indoor surveillance is crucial for ensuring the safety and security of occupants within the premises. Only those who are ill or elderly tend to spend the most time at home. The use of indoor surveillance to continuously monitor these people’s security could help in the early detection and avoidance of tragic incidents. Ensuring privacy while achieving this task has led to a recent research focus on protecting privacy in human fall detection. This paper attempts to address the issue of privacy-preserving fall detection by employing the Dynamic Vision Sensor (DVS), which captures intensity changes without compromising individuals’ privacy. This paper introduces a novel event-based dataset named “DVSFall”, incorporating diverse daily living activities (ADL) and simulated falls. Captured from multiple viewpoints using DVS cameras, the dataset encompasses twenty-one participants across varying age groups. To evaluate the dataset, we employed Spiking Neural Networks (SNN) designed to replicate neural activity. Furthermore, we explored a hybrid framework, the 3D-CNN & SNN (NeuCube) approach, for fall detection. Our proposed framework achieved an accuracy of 94.59% with SNN and notably improved to 97.84% using the hybrid approach, as measured against the recorded dataset.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "611910944ab1c1be27cda5fb8cd615939d8fbb30",
+    "externalIds": {
+      "ArXiv": "2401.11790",
+      "DBLP": "journals/apin/GayaMoreyMB24",
+      "DOI": "10.1007/s10489-024-05645-1",
+      "CorpusId": 267068517
+    },
+    "url": "https://www.semanticscholar.org/paper/611910944ab1c1be27cda5fb8cd615939d8fbb30",
+    "title": "Deep learning for computer vision based activity recognition and fall detection of the elderly: a systematic review",
+    "venue": "Applied intelligence (Boston)",
+    "year": 2024,
+    "citationCount": 73,
+    "openAccessPdf": {
+      "url": "https://doi.org/10.1007/s10489-024-05645-1",
+      "status": "HYBRID",
+      "license": "CCBY",
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/2401.11790, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle",
+      "Review"
+    ],
+    "publicationDate": "2024-01-22",
+    "authors": [
+      {
+        "authorId": "2280029786",
+        "name": "F. X. Gaya-Morey"
+      },
+      {
+        "authorId": "2280135433",
+        "name": "Cristina Manresa-Yee"
+      },
+      {
+        "authorId": "2280338277",
+        "name": "Jose Maria Buades Rubio"
+      }
+    ],
+    "abstract": "As the proportion of elderly individuals in developed countries continues to rise globally, addressing their healthcare needs, particularly in preserving their autonomy, is of paramount concern. A growing body of research focuses on Ambient Assisted Living (AAL) systems, aimed at alleviating concerns related to the independent living of the elderly. This systematic review examines the literature pertaining to fall detection and Human Activity Recognition (HAR) for the elderly, two critical tasks for ensuring their safety when living alone. Specifically, this review emphasizes the utilization of Deep Learning (DL) approaches on computer vision data, reflecting current trends in the field. A comprehensive search yielded 2,616 works from five distinct sources, spanning the years 2019 to 2023 (inclusive). From this pool, 151 relevant works were selected for detailed analysis. The review scrutinizes the employed DL models, datasets, and hardware configurations, with particular emphasis on aspects such as privacy preservation and real-world deployment. The main contribution of this study lies in the synthesis of recent advancements in DL-based fall detection and HAR for the elderly, providing insights into the state-of-the-art techniques and identifying areas for further improvement. Given the increasing importance of AAL systems in enhancing the quality of life for the elderly, this review serves as a valuable resource for researchers, practitioners, and policymakers involved in developing and implementing such technologies.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "65e98ff63dd5d2fcc48ef80a1582874884a9aa43",
+    "externalIds": {
+      "DBLP": "journals/ieeemm/LiuMSHK22",
+      "DOI": "10.1109/MMUL.2022.3173335",
+      "CorpusId": 248711914
+    },
+    "url": "https://www.semanticscholar.org/paper/65e98ff63dd5d2fcc48ef80a1582874884a9aa43",
+    "title": "Privacy-Preserving Video Fall Detection via Chaotic Compressed Sensing and GAN-Based Feature Enhancement",
+    "venue": "IEEE Multimedia",
+    "year": 2022,
+    "citationCount": 3,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/MMUL.2022.3173335?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/MMUL.2022.3173335, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2022-10-01",
+    "authors": [
+      {
+        "authorId": "49722633",
+        "name": "Jixin Liu"
+      },
+      {
+        "authorId": "2164921476",
+        "name": "Ru Meng"
+      },
+      {
+        "authorId": "2056679410",
+        "name": "Ning Sun"
+      },
+      {
+        "authorId": "47530538",
+        "name": "G. Han"
+      },
+      {
+        "authorId": "1687386",
+        "name": "S. Kwong"
+      }
+    ],
+    "abstract": "Currently, falling is the primary cause of injury and death of the elderly due to accidents, which seriously threatens the health and life of the elderly. Considering the phenomenon of video privacy disclosure in recent years, this article proposes a computer vision fall detection method to meet the needs of video privacy protection. The innovation here lies in compressed sensing (CS) visual privacy protection and GAN-based feature enhancement. There are three main steps, the video frame visual privacy protection with chaotic pseudo-random CS mechanism, the foreground extraction with improved low rank sparse decomposition theory, and the temporal and spatial feature enhancement and fall detection with improved-ACGAN `architecture. The experimental results on three open fall datasets show that the method can not only effectively detect the fall behavior in video, but also has high accuracy. At the same time, the overall operation speed of the algorithm increases with the increase of the number of compression layers.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "9037e49ff97cf67a7c86326c75fb798c63ea1eb2",
+    "externalIds": {
+      "DOI": "10.1109/ICMLAS64557.2025.10968589",
+      "CorpusId": 278065158
+    },
+    "url": "https://www.semanticscholar.org/paper/9037e49ff97cf67a7c86326c75fb798c63ea1eb2",
+    "title": "A Comprehensive Review on Deep Learning Based Fall Detection in Elderly People",
+    "venue": "2025 International Conference on Machine Learning and Autonomous Systems (ICMLAS)",
+    "year": 2025,
+    "citationCount": 2,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ICMLAS64557.2025.10968589?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ICMLAS64557.2025.10968589, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": null,
+    "publicationTypes": [
+      "Conference",
+      "Review"
+    ],
+    "publicationDate": "2025-03-10",
+    "authors": [
+      {
+        "authorId": "2357300281",
+        "name": "S. V. Suryanarayana"
+      },
+      {
+        "authorId": "1450775434",
+        "name": "Lakshmi H.N."
+      },
+      {
+        "authorId": "2357300122",
+        "name": "P. T. Chiranjeevi Swamy"
+      },
+      {
+        "authorId": "2357299971",
+        "name": "D. Mahesh"
+      }
+    ],
+    "abstract": "Elderly people are more vulnerable to falls, which can result in serious injuries, a lower quality of life, and higher medical expenses. Traditional fall detection methods, such as wearable sensors or vision-based systems, face limitations in accuracy, comfort, and practicality. Recent advancements in deep learning have significantly improved fall detection capabilities by leveraging powerful computational models for data analysis and feature extraction. With an emphasis on important methodologies, architectures, and datasets utilized in the area, this paper offers a thorough literature analysis of deep learning-based fall detection strategies. It investigates several deep learning techniques applied to sensor-based and video-based fall detection systems, such as convolutional neural networks (CNNs), recurrent neural networks (RNNs), and hybrid models. The review also emphasizes the difficulties encountered in practical application, including data privacy and computing cost, and the need for robust datasets. Finally, future research directions are proposed to address current limitations and improve fall detection systems' dependability and effectiveness for elderly care.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "58346a17aa08ce911c2bcfa35a50d20999ce6fb9",
+    "externalIds": {
+      "DOI": "10.1109/ICCSC67078.2026.11468781",
+      "CorpusId": 287484416
+    },
+    "url": "https://www.semanticscholar.org/paper/58346a17aa08ce911c2bcfa35a50d20999ce6fb9",
+    "title": "SCOUT: An AI-Powered Vision-Based Fall Detection System for Elderly Safety",
+    "venue": "IEEE International Conference on Circuits and Systems for Communications",
+    "year": 2026,
+    "citationCount": 0,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/ICCSC67078.2026.11468781?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/ICCSC67078.2026.11468781, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": null,
+    "publicationTypes": [
+      "Conference"
+    ],
+    "publicationDate": "2026-02-12",
+    "authors": [
+      {
+        "authorId": "93055734",
+        "name": "Satyam Singhal"
+      },
+      {
+        "authorId": "2429692623",
+        "name": "Ujjwal Dwivedi"
+      },
+      {
+        "authorId": "2147131542",
+        "name": "Rohit Verma"
+      },
+      {
+        "authorId": "2389435772",
+        "name": "Laxman Singh"
+      },
+      {
+        "authorId": "2220321327",
+        "name": "Rekha Kashyap"
+      }
+    ],
+    "abstract": "Falling represents one of the largest public health threats to the elderly, and falls have become a major issue for the world's healthcare systems. This research project introduces SCOUT, a home-based, continuous, computer-vision based fall detection system which uses a YOLOv8n deep learning model for the purpose of privacy preserving monitoring at home. The SCOUT system integrates a lightweight object detector with temporal heuristics, and an optional pose verification module, to provide both fast and accurate fall alerts, while providing strong user privacy protection by locally computing the object detector results and minimizing transmitted data. Because of its design for edge-based deployments, the SCOUT system also has scalable, affordable, and reliable operations in all resource limited environments. A publically available dataset was curated and expanded for training the SCOUT model, specifically for use in detecting falls in older adults. These experimental results show that SCOUT achieved the desired performance metrics of detection accuracy $=93 \\%$, precision $=0.94$, recall $=0.945$ and $\\mathbf{F 1}$ score $=\\mathbf{0. 9 5}$, while demonstrating robustness across various lighting, occlusion, and camera angle challenges. The results shown above clearly support that SCOUT is capable of adapting to different use cases, and therefore applicable to Smart Home and Elderly Care Monitoring applications.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "b9c11ff242a5bf2202b1e8ac9a3a5cab5f83b6da",
+    "externalIds": {
+      "MAG": "3002458900",
+      "DBLP": "journals/vc/LiuXT21",
+      "DOI": "10.1007/s00371-020-01804-w",
+      "CorpusId": 210914060
+    },
+    "url": "https://www.semanticscholar.org/paper/b9c11ff242a5bf2202b1e8ac9a3a5cab5f83b6da",
+    "title": "Privacy-preserving video fall detection using visual shielding information",
+    "venue": "The Visual Computer",
+    "year": 2020,
+    "citationCount": 25,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00371-020-01804-w?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00371-020-01804-w, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2020-01-24",
+    "authors": [
+      {
+        "authorId": "49722633",
+        "name": "Jixin Liu"
+      },
+      {
+        "authorId": "1490866533",
+        "name": "Yinyun Xia"
+      },
+      {
+        "authorId": "2112474000",
+        "name": "Zheng Tang"
+      }
+    ],
+    "abstract": null,
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "0abb7bc0d60af66755d0e288705e37db91b11c6e",
+    "externalIds": {
+      "DBLP": "journals/mms/LiuYYS25",
+      "DOI": "10.1007/s00530-024-01631-2",
+      "CorpusId": 275149615
+    },
+    "url": "https://www.semanticscholar.org/paper/0abb7bc0d60af66755d0e288705e37db91b11c6e",
+    "title": "Detection of typical abnormal behavior in home-based elderly care based on ViT-iECGAN significant information migration compensation",
+    "venue": "Multimedia Systems",
+    "year": 2024,
+    "citationCount": 4,
+    "openAccessPdf": {
+      "url": "",
+      "status": "CLOSED",
+      "license": null,
+      "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s00530-024-01631-2?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s00530-024-01631-2, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2024-12-30",
+    "authors": [
+      {
+        "authorId": "49722633",
+        "name": "Jixin Liu"
+      },
+      {
+        "authorId": "2338378510",
+        "name": "Sufang Yao"
+      },
+      {
+        "authorId": "102320289",
+        "name": "Hai-geng Yang"
+      },
+      {
+        "authorId": "2056679410",
+        "name": "Ning Sun"
+      }
+    ],
+    "abstract": null,
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "5867126d3d1e28a69327ceee0e98cbb2c8aa3fc8",
+    "externalIds": {
+      "DOI": "10.62643/10.62643/ijerst.2026.v22.n2(1).2626",
+      "CorpusId": 287373254
+    },
+    "url": "https://www.semanticscholar.org/paper/5867126d3d1e28a69327ceee0e98cbb2c8aa3fc8",
+    "title": "Deep Hybrid Learning for Acoustic Fall Detection with Parallel Convolutional and Sequential Feature Modeling",
+    "venue": "International Journal of Engineering Research and Science &amp; Technology",
+    "year": 2026,
+    "citationCount": 0,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.62643/10.62643/ijerst.2026.v22.n2(1).2626?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.62643/10.62643/ijerst.2026.v22.n2(1).2626, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": null,
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2026-04-09",
+    "authors": [
+      {
+        "authorId": "2321835745",
+        "name": "B. Naresh"
+      },
+      {
+        "authorId": "2297600257",
+        "name": "K. Srinivas"
+      },
+      {
+        "authorId": "2429159472",
+        "name": "Nampelly Akhil"
+      },
+      {
+        "authorId": "2429161192",
+        "name": "Baikani Omsha"
+      },
+      {
+        "authorId": "2429159341",
+        "name": "Kunde Rakshitha"
+      },
+      {
+        "authorId": "2429163634",
+        "name": "Mucherla Sathwik"
+      },
+      {
+        "authorId": "2429158401",
+        "name": "Gajaveni Anil"
+      }
+    ],
+    "abstract": "Fall detection using acoustic signals has gained significant attention due to its non-intrusive, privacy-preserving, and cost-effective nature. Unlike vision-based systems, audio-based fall monitoring can operate efficiently in low-light or occluded environments, making it suitable for smart homes and elderly-care applications. However, accurately distinguishing fall sounds from non-fall environmental noises remains challenging due to variations in background sound, reverberation, and differences in floor materials. Traditional machine learning systems such as Logistic Regression Classifier (LRC), Adaptive Boosting Classifier (AdaBoost), Gradient Boosting Classifier (GBC) and Gaussian Naive Bayes Classifier (GNB) rely heavily on handcrafted audio features and simple decision boundaries. Although these models provide baseline performance, they struggle to capture the complex spectral–temporal patterns present in real fall events. Their dependency on manual feature engineering, inability to learn long-range temporal dependencies, and sensitivity to noise limit their reliability in real-world scenarios. These limitations highlight the need for a more robust and intelligent system capable of understanding both the spectral structure and temporal evolution of acoustic signals. To address this, the proposed work introduces a hybrid deep learning architecture combining Bidirectional Convolutional neural network (Bi-CNN) with Bidirectional Gated recurrent units (Bi-GRU) also called as Parallel Bi-CNN + Bi-GRU Network (PB-Bi CR-Net). The model employs two parallel convolutional branches to extract multi-scale spectral features while a bidirectional GRU learns forward and backward temporal relationships. This hybrid design enables the network to capture pre-impact cues, impact characteristics, and postimpact reverberation patterns with greater accuracy. Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments. This makes the system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "da95302fd711afa86990cb471cdef361c065cd1a",
+    "externalIds": {
+      "DOI": "10.1109/UEMCON67449.2025.11267584",
+      "CorpusId": 283569120
+    },
+    "url": "https://www.semanticscholar.org/paper/da95302fd711afa86990cb471cdef361c065cd1a",
+    "title": "Human-Centric Edge Intelligence with Gaussian Splatting for Privacy-Aware Elderly Care",
+    "venue": "Ubiquitous Computing, Electronics & Mobile Communication Conference",
+    "year": 2025,
+    "citationCount": 0,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1109/UEMCON67449.2025.11267584?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1109/UEMCON67449.2025.11267584, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": null,
+    "publicationTypes": [
+      "Conference"
+    ],
+    "publicationDate": "2025-10-22",
+    "authors": [
+      {
+        "authorId": "2396509279",
+        "name": "Laure Bien Aime"
+      },
+      {
+        "authorId": "2316097523",
+        "name": "Debashis Das"
+      },
+      {
+        "authorId": "1679036",
+        "name": "Pushpita Chatterjee"
+      },
+      {
+        "authorId": "2238672936",
+        "name": "Uttam Ghosh"
+      }
+    ],
+    "abstract": "The growing elderly population makes it challenging to provide safe, effective, and respectful healthcare, especially for those living alone or in assisted facilities. Existing health monitoring systems, mainly using centralized architectures and single-sensor data, face latency, limited context awareness, and privacy issues. Although deep learning and IoT systems have advanced Human Activity Recognition (HAR), most still send raw data to the cloud, which is not ideal for elderly care. This study addresses these gaps by developing a people-focused, privacy-preserving edge monitoring framework using immersive modeling and multimodal sensing. The framework uses federated learning to let people train models together without sharing their raw personal data. It combines wearable devices, ambient sensors, and vision-based data streams with federated learning to enable decentralized, collaborative model training without exposing raw personal data. Herein, privacy is further enforced through embedded Gaussian-based visual obfuscation and a proof-of-concept Gaussian splatting module for anonymized 3D human modeling. The proposed strategy has been tested on multimodal datasets like UP-Fall and has been shown to perform well. The findings indicate the existence of distinct activity signatures across modalities. Late-fusion models also show superior fall-detection recall than unimodal baselines, even when there are issues with class imbalance and noise. Overall, the findings show that edge AI that is immersive and cares about privacy might greatly improve the accuracy, speed, and dependability of health monitoring systems for older people.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "b38fb5ba9cc1a62915759ac52a34b4cdb128cc8b",
+    "externalIds": {
+      "DOI": "10.1088/1742-6596/3188/1/012016",
+      "CorpusId": 286678942
+    },
+    "url": "https://www.semanticscholar.org/paper/b38fb5ba9cc1a62915759ac52a34b4cdb128cc8b",
+    "title": "Design of wearable device for elderly fall detection using ensemble learning",
+    "venue": "Journal of Physics: Conference Series",
+    "year": 2026,
+    "citationCount": 0,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.1088/1742-6596/3188/1/012016?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1088/1742-6596/3188/1/012016, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Physics"
+    ],
+    "publicationTypes": [
+      "JournalArticle",
+      "Conference"
+    ],
+    "publicationDate": "2026-03-01",
+    "authors": [
+      {
+        "authorId": "2424736002",
+        "name": "Ni Luh Putu Sri Diantari"
+      },
+      {
+        "authorId": "2424736010",
+        "name": "Qaulan XL Syadidah"
+      },
+      {
+        "authorId": "2305670884",
+        "name": "A. Rizal"
+      },
+      {
+        "authorId": "2090892871",
+        "name": "M. Barri"
+      }
+    ],
+    "abstract": "This study presents an artificial intelligence (AI) approach for fall detection in elderly care using inertial measurement unit (IMU) data. IMU sensors were chosen for their high accuracy in capturing multi-axis linear acceleration and angular velocity, compact size, low power consumption, ease of integration into wearable devices, and ability to preserve user privacy compared to vision-based systems. The proposed method employs a stacking ensemble model combining Random Forest and Gradient Boosting as base learners with Logistic Regression as the meta-learner. Raw accelerometer and gyroscope signals (100 Hz) were segmented using a 3 s sliding window with 50% overlap, followed by the extraction of Hjorth descriptors and statistical features. Automatic labeling was performed using a mobility-based threshold. The trained model achieved an F1-score of 0.92 and an AUC of 0.969, outperforming individual base models. To validate real-world applicability, the Random Forest classifier was optimized and implemented in C for deployment on an embedded microcontroller (Arduino Nano RP2040 Connect) with Bluetooth Low Energy (BLE) capability for real-time fall alerts.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "cd231a5acf5100f99a54424fd093f331849099e9",
+    "externalIds": {
+      "DOI": "10.33971/ijmrai.2.1.8",
+      "CorpusId": 286756683
+    },
+    "url": "https://www.semanticscholar.org/paper/cd231a5acf5100f99a54424fd093f331849099e9",
+    "title": "A Narrative Review of AI and IoT-Based Systems for Child Fall Detection and Health Monitoring",
+    "venue": "International Journal of Mechatronics, Robotics, and Artificial Intelligence",
+    "year": 2026,
+    "citationCount": 0,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.33971/ijmrai.2.1.8?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.33971/ijmrai.2.1.8, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": null,
+    "publicationTypes": [
+      "JournalArticle",
+      "Review"
+    ],
+    "publicationDate": "2026-06-01",
+    "authors": [
+      {
+        "authorId": "2425253237",
+        "name": "Fatin Abdalwahab"
+      },
+      {
+        "authorId": "2055332284",
+        "name": "R. Ibrahim"
+      }
+    ],
+    "abstract": "This narrative study provides an analytical and critical review of recent advancements (2019-2026) in the integration of IoT (Internet of Things) and AI (Artificial Intelligence) systems for fall detection and child health monitoring. Unlike prior studies, which concentrated on elderly care and monitoring, this study examines child-specific monitoring environments, including wearable, vision-based, and hybrid systems. It investigates new trends such as the combination of deep learning and interpretable AI with multimedia sensory input and peripheral or fuzzy computing. Data scarcity, real-world deployment limits, privacy concerns, and age-related changes are among the key challenges addressed. The paper identifies important research gaps and proposes future paths for sustainable, secure, and accessible intelligent child monitoring systems.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "fcc6b0c11b45de5a43d9a834d7e6baa8da57693e",
+    "externalIds": {
+      "PubMedCentral": "7589648",
+      "MAG": "3093993765",
+      "DBLP": "journals/sensors/TatenoMQH20",
+      "DOI": "10.3390/s20205957",
+      "CorpusId": 225058866,
+      "PubMed": "33096820"
+    },
+    "url": "https://www.semanticscholar.org/paper/fcc6b0c11b45de5a43d9a834d7e6baa8da57693e",
+    "title": "Privacy-Preserved Fall Detection Method with Three-Dimensional Convolutional Neural Network Using Low-Resolution Infrared Array Sensor",
+    "venue": "Italian National Conference on Sensors",
+    "year": 2020,
+    "citationCount": 28,
+    "openAccessPdf": {
+      "url": "https://www.mdpi.com/1424-8220/20/20/5957/pdf",
+      "status": "GOLD",
+      "license": "CCBY",
+      "disclaimer": "Notice: Paper or abstract available at https://pmc.ncbi.nlm.nih.gov/articles/PMC7589648, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science",
+      "Medicine"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2020-10-01",
+    "authors": [
+      {
+        "authorId": "20695444",
+        "name": "S. Tateno"
+      },
+      {
+        "authorId": "1387585350",
+        "name": "Fanxing Meng"
+      },
+      {
+        "authorId": "2003577535",
+        "name": "Renzhong Qian"
+      },
+      {
+        "authorId": "3674718",
+        "name": "Y. Hachiya"
+      }
+    ],
+    "abstract": "Due to the rapid aging of the population in recent years, the number of elderly people in hospitals and nursing homes is increasing, which results in a shortage of staff. Therefore, the situation of elderly citizens requires real-time attention, especially when dangerous situations such as falls occur. If staff cannot find and deal with them promptly, it might become a serious problem. For such a situation, many kinds of human motion detection systems have been in development, many of which are based on portable devices attached to a user’s body or external sensing devices such as cameras. However, portable devices can be inconvenient for users, while optical cameras are affected by lighting conditions and face privacy issues. In this study, a human motion detection system using a low-resolution infrared array sensor was developed to protect the safety and privacy of people who need to be cared for in hospitals and nursing homes. The proposed system can overcome the above limitations and have a wide range of application. The system can detect eight kinds of motions, of which falling is the most dangerous, by using a three-dimensional convolutional neural network. As a result of experiments of 16 participants and cross-validations of fall detection, the proposed method could achieve 98.8% and 94.9% of accuracy and F1-measure, respectively. They were 1% and 3.6% higher than those of a long short-term memory network, and show feasibility of real-time practical application.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "90a0e483094cfaa9f9f4e3343d234e37b3c1e264",
+    "externalIds": {
+      "DBLP": "journals/alr/RavankarRR23",
+      "DOI": "10.1007/s10015-023-00882-y",
+      "CorpusId": 259594328
+    },
+    "url": "https://www.semanticscholar.org/paper/90a0e483094cfaa9f9f4e3343d234e37b3c1e264",
+    "title": "Real-time monitoring of elderly people through computer vision",
+    "venue": "Artificial Life and Robotics",
+    "year": 2023,
+    "citationCount": 9,
+    "openAccessPdf": {
+      "url": "",
+      "status": "CLOSED",
+      "license": null,
+      "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s10015-023-00882-y?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s10015-023-00882-y, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2023-07-06",
+    "authors": [
+      {
+        "authorId": "2238528",
+        "name": "A. Ravankar"
+      },
+      {
+        "authorId": "49895020",
+        "name": "Arpit Rawankar"
+      },
+      {
+        "authorId": "3120148",
+        "name": "Ankit A. Ravankar"
+      }
+    ],
+    "abstract": null,
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "0e1049e47866edc5067d755df79150f8a4cf8de5",
+    "externalIds": {
+      "DBLP": "journals/ei/BelbachirLHMBM10",
+      "MAG": "1906954804",
+      "DOI": "10.1007/s502-010-0750-1",
+      "CorpusId": 34770605
+    },
+    "url": "https://www.semanticscholar.org/paper/0e1049e47866edc5067d755df79150f8a4cf8de5",
+    "title": "Biologically-inspired stereo vision for elderly safety at home",
+    "venue": "Elektrotech. Informationstechnik",
+    "year": 2010,
+    "citationCount": 9,
+    "openAccessPdf": {
+      "url": "",
+      "status": "CLOSED",
+      "license": null,
+      "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1007/s502-010-0750-1?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1007/s502-010-0750-1, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Engineering",
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2010-08-01",
+    "authors": [
+      {
+        "authorId": "1768812",
+        "name": "A. Belbachir"
+      },
+      {
+        "authorId": "2792132",
+        "name": "Tommi Lunden"
+      },
+      {
+        "authorId": "40484920",
+        "name": "P. Hanák"
+      },
+      {
+        "authorId": "72929816",
+        "name": "F. Markus"
+      },
+      {
+        "authorId": "2225538326",
+        "name": "M. Böttcher"
+      },
+      {
+        "authorId": "2901253",
+        "name": "Tuija Mannersola"
+      }
+    ],
+    "abstract": null,
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "1a063557f361ffc431f9631afb9c63bca97ac99c",
+    "externalIds": {
+      "ArXiv": "1706.08107",
+      "DBLP": "journals/corr/Kepski17",
+      "MAG": "2685946604",
+      "CorpusId": 7635047
+    },
+    "url": "https://www.semanticscholar.org/paper/1a063557f361ffc431f9631afb9c63bca97ac99c",
+    "title": "Detekcja upadku i wybranych akcji na sekwencjach obrazów cyfrowych",
+    "venue": "arXiv.org",
+    "year": 2017,
+    "citationCount": 0,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null,
+      "disclaimer": "Notice: Paper or abstract available at https://arxiv.org/abs/1706.08107, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": [
+      "JournalArticle"
+    ],
+    "publicationDate": "2017-06-25",
+    "authors": [
+      {
+        "authorId": "2089267925",
+        "name": "Michał Kępski"
+      }
+    ],
+    "abstract": "In recent years a growing interest on action recognition is observed, including detection of fall accident for the elderly. However, despite many efforts undertaken, the existing technology is not widely used by elderly, mainly because of its flaws like low precision, large number of false alarms, inadequate privacy preserving during data acquisition and processing. This research work meets these expectations. The work is empirical and it is situated in the field of computer vision systems. The main part of the work situates itself in the area of action and behavior recognition. Efficient algorithms for fall detection were developed, tested and implemented using image sequences and wireless inertial sensor worn by a monitored person. A set of descriptors for depth maps has been elaborated to permit classification of pose as well as the action of a person. Experimental research was carried out based on the prepared data repository consisting of synchronized depth and accelerometric data. The study was carried out in the scenario with a static camera facing the scene and an active camera observing the scene from above. The experimental results showed that the developed algorithms for fall detection have high sensitivity and specificity. The algorithm were designed with regard to low computational demands and possibility to run on ARM platforms. Several experiments including person detection, tracking and fall detection in real-time were carried out to show efficiency and reliability of the proposed solutions.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "dcee5835e6c4b2f228f757c588cbc27644831725",
+    "externalIds": {
+      "MAG": "2583920691",
+      "DOI": "10.5334/ijic.2680",
+      "CorpusId": 78725311
+    },
+    "url": "https://www.semanticscholar.org/paper/dcee5835e6c4b2f228f757c588cbc27644831725",
+    "title": "Care respite: taking care of the caregivers",
+    "venue": "",
+    "year": 2016,
+    "citationCount": 1,
+    "openAccessPdf": {
+      "url": "https://www.ijic.org/articles/10.5334/ijic.2680/galley/3500/download/",
+      "status": "GOLD",
+      "license": "CCBY",
+      "disclaimer": "Notice: Paper or abstract available at https://api.unpaywall.org/v2/10.5334/ijic.2680?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.5334/ijic.2680, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Medicine"
+    ],
+    "publicationTypes": null,
+    "publicationDate": "2016-12-16",
+    "authors": [
+      {
+        "authorId": "2061548617",
+        "name": "F. Alonso"
+      },
+      {
+        "authorId": "46176857",
+        "name": "Xavier Baró"
+      },
+      {
+        "authorId": "7855312",
+        "name": "Sergio Escalera"
+      },
+      {
+        "authorId": "1763726",
+        "name": "Jordi Gonzàlez"
+      },
+      {
+        "authorId": "11512672",
+        "name": "M. Mackay"
+      },
+      {
+        "authorId": "2301557733",
+        "name": "Anna Serrahima"
+      }
+    ],
+    "abstract": "Introduction : With an ageing population, the issue of care provision is becoming increasingly critical. Since the aspiration of the majority of older people is to live safely and well at home, housing monitoring will be part of health & care integration in the next decades. As a consequence, a higher proportion of people will have to rely on family, friends or neighbours as their informal caregivers, providing that this group already count as around 80% of all caregivers in the EU). The varied and cumulative problems that this caregivers face include loss of personal opportunities and self-esteem, financial problems or physical and emotional problems. Several strategies need to be enforced to prevent the burnout and improve the quality of life of these informal caregivers, such as the possibility of providing them with useful and reliable monitoring tools that can help reduce the exhausting and continuous supervision activity they have to perform, reduce their stress, and increase their leisure time while improving the autonomy and wellness of the dependent people. The technological solutions currently in use are invasive (wearable sensors) or require actions difficult to perform by the elder (call or press the button), in critical situations (e.g. falling or fainting situations, where the elder is not able to give any response). As an alternative to these solutions, this paper describes *\"Care Respite\", a novel non-invasive, real-time and privacy-preserving monitoring technology conceived for the first time as a real respite for those taking care of others* and describes the results of the case studies. Short description : The Care Respite technology is composed of an ambient intelligent device (AID) and a remote receiver. The AID device includes a Microsoft Kinect multi-modal sensor and a computer unit. The sensor captures audio and depth maps from around 25 m2 (thanks to its infrared structured light technology) to be processed in a computer unit by an advanced generation of Computer Vision software. This software is able to recognize specific events like: leaving the environment, falling/fainting, high agitation, etc. Monitoring can be done in dark environments thanks to the infrared technology of the sensor, therefore the appearance of the person is not used at all. The alert is transmitted to a receiver, any smartphone with Internet connection. With our smartphone application, different caregivers can share the monitoring task of a single person, and a single caregiver can monitor multiple dependent people at the same time. Key findings : The innovative aspect of Care Respite relies on (i) the benefits of the incorporation and exploitation of novel computer vision technologies now available thanks to the use of low-cost depth cameras, and (ii) on the feedback provided by informal and professional caregivers during these last two years. No other monitoring system in the market addressed to the caregivers is comparable in terms of safety, relief, autonomy, satisfaction, intimacy and cost reduction. The system does not require a fixed installation point, therefore the monitoring camera can be placed anywhere inside a home or a retirement house. Highlights : Low cost RGB-D cameras are completely changing the computer vision world, as they are being successfully used in several applications and research areas. Following this trend, the first users of Care Respite liked the idea of exploiting depth data (not the appearance) recorded at the older person’s homes to send alarms and information to their caregivers, who are connected using smartphone. An additional feature that liked the first users of Care Respite is its personalization aspect: the remote smartphone application allows the professionals or family carers to choose which risky events to monitor. Another lesson learnt during implementation is that the remote visualization and communication via image and audio is an essential and supporting tool for fast responses in case of risk, while improving the autonomy and life quality of both the elderly and their caregivers. Conclusion : This project aims at ensuring that all disabled or chronically ill people can get the help they need without overburdening their families. Improving carers' quality of life and preventing their burnout require new solutions that are affordable and user friendly for families and caregivers. In this context, Care Respite represents a technological solution for the automatic detection of events like falling down, not moving during a period of time, receiving an unexpected visit or being absent from a room. The intelligent software is able to send an alert to the mobile device of the caregivers allowing real time response.",
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "aba70ccbe412c72725618e4bf48e6073bc1035da",
+    "externalIds": {
+      "MAG": "2618842445",
+      "CorpusId": 195937742
+    },
+    "url": "https://www.semanticscholar.org/paper/aba70ccbe412c72725618e4bf48e6073bc1035da",
+    "title": "Proceedings of the 1st ACM workshop on Vision networks for behavior analysis",
+    "venue": "ACM Multimedia",
+    "year": 2008,
+    "citationCount": 2,
+    "openAccessPdf": {
+      "url": "",
+      "status": null,
+      "license": null
+    },
+    "fieldsOfStudy": [
+      "Computer Science"
+    ],
+    "publicationTypes": null,
+    "publicationDate": "2008-10-31",
+    "authors": [
+      {
+        "authorId": "1768752",
+        "name": "H. Aghajan"
+      },
+      {
+        "authorId": "51382163",
+        "name": "A. Prati"
+      }
+    ],
+    "abstract": null,
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  },
+  {
+    "paperId": "f799e733813ce9b5bdd7eeff67e80fdf691a1954",
+    "externalIds": {
+      "MAG": "2069100102",
+      "DOI": "10.1111/j.1442-9071.2007.01600.x",
+      "CorpusId": 13379096,
+      "PubMed": "17894676"
+    },
+    "url": "https://www.semanticscholar.org/paper/f799e733813ce9b5bdd7eeff67e80fdf691a1954",
+    "title": "Does persistency truly equate to compliance?",
+    "venue": "Clinical and Experimental Ophthalmology",
+    "year": 2007,
+    "citationCount": 1,
+    "openAccessPdf": {
+      "url": "",
+      "status": "CLOSED",
+      "license": null,
+      "disclaimer": "Notice: The following paper fields have been elided by the publisher: {'abstract'}. Paper or abstract available at https://api.unpaywall.org/v2/10.1111/j.1442-9071.2007.01600.x?email=<INSERT_YOUR_EMAIL> or https://doi.org/10.1111/j.1442-9071.2007.01600.x, which is subject to the license by the author or copyright owner provided with this content. Please go to the source to verify the license and copyright information for your use."
+    },
+    "fieldsOfStudy": [
+      "Medicine"
+    ],
+    "publicationTypes": [
+      "Editorial",
+      "LettersAndComments"
+    ],
+    "publicationDate": "2007-09-01",
+    "authors": [
+      {
+        "authorId": "48286027",
+        "name": "S. Best"
+      }
+    ],
+    "abstract": null,
+    "query_used": "privacy preserving vision fall detection elderly care recent papers"
+  }
+]

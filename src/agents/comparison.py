@@ -26,5 +26,9 @@ def build_comparison_table(summaries: List[PaperSummary]) -> Tuple[str, List[Dic
             }
         )
     df = pd.DataFrame(rows)
-    md = df.to_markdown(index=False)
+    try:
+        md = df.to_markdown(index=False)
+    except ImportError:
+        # Fallback when optional pandas markdown dependency is unavailable.
+        md = df.to_string(index=False)
     return md, rows

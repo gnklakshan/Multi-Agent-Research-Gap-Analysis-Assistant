@@ -40,7 +40,7 @@ END
 ## Tech Stack
 
 - Orchestration: LangGraph
-- LLM + tools: LangChain + OpenAI
+- LLM + tools: LangChain + OpenAI/Ollama (local)
 - Vector index: FAISS
 - PDF parsing: PyMuPDF
 - Paper discovery: Semantic Scholar Graph API (+ optional Unpaywall)
@@ -53,7 +53,7 @@ END
 src/
   api/                  # Optional FastAPI service
   agents/               # LangGraph workflow + multi-agent steps
-  config/               # Settings + OpenAI clients
+  config/               # Settings + model clients
   ingestion/            # PDF parsing + chunking
   papers/               # Search, query expansion, ranking, versioning, download
   prompts/              # Prompt templates for each agent
@@ -72,7 +72,7 @@ tests/                  # Basic unit tests
 
 ## Setup
 
-Prereqs: Python 3.10+, OpenAI API key.
+Prereqs: Python 3.10+, plus either OpenAI API key or local Ollama.
 
 Install:
 
@@ -86,11 +86,29 @@ Create `.env`:
 OPENAI_API_KEY=...
 SEMANTIC_SCHOLAR_API_KEY=...   # optional
 UNPAYWALL_EMAIL=...            # optional (required by Unpaywall policy)
+LLM_PROVIDER=openai
+EMBEDDING_PROVIDER=openai
 OPENAI_MODEL=gpt-4o-mini
 EMBEDDING_MODEL=text-embedding-3-small
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=gemma4:3b
+OLLAMA_EMBEDDING_MODEL=nomic-embed-text
+SEMANTIC_SCHOLAR_MAX_QUERIES=4
+SEMANTIC_SCHOLAR_LIMIT_PER_QUERY=20
+SEMANTIC_SCHOLAR_MIN_INTERVAL_S=2.0
 MAX_PAPERS=10
 FAISS_INDEX_PATH=data/index/faiss_research_papers
 OUTPUT_DIR=outputs
+```
+
+Local-only Ollama example:
+
+```bash
+LLM_PROVIDER=ollama
+EMBEDDING_PROVIDER=ollama
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=gemma4:3b
+OLLAMA_EMBEDDING_MODEL=nomic-embed-text
 ```
 
 ## Run (CLI)

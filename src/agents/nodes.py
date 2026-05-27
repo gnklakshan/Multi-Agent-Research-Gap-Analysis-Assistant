@@ -5,7 +5,16 @@ from typing import Any, Dict, List
 
 from rich.console import Console
 
-from ..config import FAISS_INDEX_PATH, MAX_PAPERS, OUTPUT_DIR, SEMANTIC_SCHOLAR_API_KEY, UNPAYWALL_EMAIL
+from ..config import (
+    FAISS_INDEX_PATH,
+    MAX_PAPERS,
+    OUTPUT_DIR,
+    SEMANTIC_SCHOLAR_API_KEY,
+    SEMANTIC_SCHOLAR_LIMIT_PER_QUERY,
+    SEMANTIC_SCHOLAR_MAX_QUERIES,
+    SEMANTIC_SCHOLAR_MIN_INTERVAL_S,
+    UNPAYWALL_EMAIL,
+)
 from ..ingestion import ingest_pdfs_to_documents
 from ..papers.query_expansion import expand_queries
 from ..papers.search import dedupe_papers, search_papers
@@ -14,7 +23,7 @@ from ..papers.versioning import resolve_versions
 from ..papers.unpaywall import fetch_unpaywall_pdf_url
 from ..papers.pdf_downloader import download_pdfs
 from ..retriever import build_vector_store_from_documents, get_retriever_tool, save_vector_store
-from ..utils.json_io import write_json
+from ..utils.json_io import read_json, write_json
 from ..utils.paths import ensure_dir
 
 from .paper_reader import summarize_papers
@@ -33,7 +42,7 @@ def create_expand_queries_node():
     def node(state: Dict[str, Any]) -> Dict[str, Any]:
         topic = state["topic"]
         console.log(f"[bold]expand_queries[/bold]: {topic}")
-        queries = expand_queries(topic)
+        queries = expand_queries(topic, max_queries=SEMANTIC_SCHOLAR_MAX_QUERIES)
         return {"expanded_queries": queries}
 
     return node
@@ -44,11 +53,29 @@ def create_search_papers_node():
         queries: List[str] = state.get("expanded_queries") or [state["topic"]]
         output_dir = Path(state.get("output_dir") or OUTPUT_DIR)
         console.log(f"[bold]search_papers[/bold]: queries={len(queries)}")
-        raw = search_papers(queries, api_key=SEMANTIC_SCHOLAR_API_KEY, limit_per_query=20)
+        raw = search_papers(
+            queries,
+            api_key=SEMANTIC_SCHOLAR_API_KEY,
+            limit_per_query=SEMANTIC_SCHOLAR_LIMIT_PER_QUERY,
+            min_interval_s=SEMANTIC_SCHOLAR_MIN_INTERVAL_S,
+        )
 
         good = [p for p in raw if p.get("title")]
         if not good:
-            raise RuntimeError("Semantic Scholar search failed or returned no usable papers (check network / API key / query).")
+            cached_path = output_dir / "candidate_papers.json"
+            cached = read_json(cached_path, default=[]) or []
+            if cached:
+                warns = state.get("warnings") or []
+                warns.append(
+                    "Semantic Scholar returned no usable papers; reusing cached candidate_papers.json."
+                )
+                state["warnings"] = warns
+                console.log("[yellow]search_papers: live search failed; using cached candidate_papers.json[/yellow]")
+                return {"candidate_papers": cached}
+            raise RuntimeError(
+                "Semantic Scholar search failed or returned no usable papers. "
+                "Add SEMANTIC_SCHOLAR_API_KEY or retry later; no cache available."
+            )
 
         deduped = dedupe_papers(good)
         ensure_dir(output_dir)

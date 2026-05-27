@@ -1,0 +1,538 @@
+[
+  {
+    "paper_id": "10.1007_s10489-024-05645-1",
+    "title": "Deep learning for computer vision based activity recognition and fall detection of the elderly: a systematic review",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "fall detection and Human Activity Recognition (HAR) for the elderly",
+    "proposed_method": "Deep Learning (DL) approaches on computer vision data",
+    "input_type": "computer vision data",
+    "model_or_algorithm": "not reported",
+    "datasets": [
+      "not reported"
+    ],
+    "metrics": {
+      "accuracy": "not reported",
+      "precision": "not reported",
+      "recall": "not reported"
+    },
+    "main_results": [
+      "synthesis of recent advancements in DL-based fall detection and HAR for the elderly"
+    ],
+    "main_contributions": [
+      "providing insights into the state-of-the-art techniques and identifying areas for further improvement"
+    ],
+    "author_limitations": [
+      "not reported"
+    ],
+    "inferred_limitations": [
+      "not reported"
+    ],
+    "privacy_notes": [
+      "The review scrutinizes the employed DL models, datasets, and hardware configurations, with particular emphasis on aspects such as privacy preservation"
+    ],
+    "deployment_notes": [
+      "The review scrutinizes the employed DL models, datasets, and hardware configurations, with particular emphasis on real-world deployment"
+    ],
+    "future_work": [
+      "not reported"
+    ],
+    "evidence_items": [
+      {
+        "claim": "The review examines fall detection and Human Activity Recognition (HAR) for the elderly.",
+        "paper_id": "10.1007_s10489-024-05645-1",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "Specifically, this review emphasizes the utilization of Deep Learning (DL) approaches on computer vision data, reflecting current trends in the field.",
+        "doi": null
+      },
+      {
+        "claim": "A comprehensive search yielded 2,616 works from five distinct sources, spanning the years 2019 to 2023 (inclusive).",
+        "paper_id": "10.1007_s10489-024-05645-1",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "A comprehensive search yielded 2,616 works from five distinct sources, spanning the years 2019 to 2023 (inclusive).",
+        "doi": null
+      },
+      {
+        "claim": "The review scrutinizes the employed DL models, datasets, and hardware configurations, with particular emphasis on aspects such as privacy preservation and real-world deployment.",
+        "paper_id": "10.1007_s10489-024-05645-1",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "The review scrutinizes the employed DL models, datasets, and hardware configurations, with particular emphasis on aspects such as privacy preservation and real-world deployment.",
+        "doi": null
+      }
+    ]
+  },
+  {
+    "paper_id": "10.3390_s20205957",
+    "title": "Privacy-Preserved Fall Detection Method with Three-Dimensional Convolutional Neural Network Using Low-Resolution Infrared Array Sensor",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "Due to the rapid aging of the population, there is a shortage of staff to care for elderly people in hospitals and nursing homes, especially when falls occur.",
+    "proposed_method": "A human motion detection system using a low-resolution infrared array sensor was developed to protect the safety and privacy of people who need to be cared for in hospitals and nursing homes. The system uses a three-dimensional convolutional neural network to detect eight kinds of motions, with a focus on fall detection.",
+    "input_type": "low-resolution infrared array sensor",
+    "model_or_algorithm": "three-dimensional convolutional neural network",
+    "datasets": [
+      "16 participants"
+    ],
+    "metrics": {
+      "accuracy": "98.8%",
+      "f1_measure": "94.9%"
+    },
+    "main_results": [
+      "The proposed method achieved 98.8% accuracy and 94.9% F1-measure in fall detection."
+    ],
+    "main_contributions": [
+      "The method shows feasibility of real-time practical application."
+    ],
+    "author_limitations": [
+      "1% and 3.6% higher than those of a long short-term memory network"
+    ],
+    "inferred_limitations": [
+      "not reported"
+    ],
+    "privacy_notes": [
+      "The system protects the safety and privacy of people who need to be cared for in hospitals and nursing homes."
+    ],
+    "deployment_notes": [
+      "The system can overcome the limitations of portable devices and optical cameras."
+    ],
+    "future_work": [
+      "not reported"
+    ],
+    "evidence_items": [
+      {
+        "claim": "method",
+        "paper_id": "10.3390_s20205957",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "a human motion detection system using a low-resolution infrared array sensor was developed to protect the safety and privacy of people who need to be cared for in hospitals and nursing homes.",
+        "doi": null
+      },
+      {
+        "claim": "dataset",
+        "paper_id": "10.3390_s20205957",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "As a result of experiments of 16 participants and cross-validations of fall detection",
+        "doi": null
+      },
+      {
+        "claim": "results",
+        "paper_id": "10.3390_s20205957",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "the proposed method could achieve 98.8% and 94.9% of accuracy and F1-measure, respectively.",
+        "doi": null
+      },
+      {
+        "claim": "limitations",
+        "paper_id": "10.3390_s20205957",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "They were 1% and 3.6% higher than those of a long short-term memory network",
+        "doi": null
+      }
+    ]
+  },
+  {
+    "paper_id": "10.1109_icmlas64557.2025.10968589",
+    "title": "A Comprehensive Review on Deep Learning Based Fall Detection in Elderly People",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "Elderly people are more vulnerable to falls, which can result in serious injuries, a lower quality of life, and higher medical expenses.",
+    "proposed_method": "Deep learning based fall detection strategies utilizing CNNs, RNNs, and hybrid models.",
+    "input_type": "sensor-based and video-based fall detection systems",
+    "model_or_algorithm": "convolutional neural networks (CNNs), recurrent neural networks (RNNs), and hybrid models",
+    "datasets": [
+      "not reported"
+    ],
+    "metrics": {
+      "not reported": "not reported"
+    },
+    "main_results": [
+      "not reported"
+    ],
+    "main_contributions": [
+      "investigates several deep learning techniques applied to sensor-based and video-based fall detection systems"
+    ],
+    "author_limitations": [
+      "data privacy and computing cost"
+    ],
+    "inferred_limitations": [
+      "accuracy, comfort, and practicality"
+    ],
+    "privacy_notes": [
+      "data privacy"
+    ],
+    "deployment_notes": [
+      "not reported"
+    ],
+    "future_work": [
+      "address current limitations and improve fall detection systems' dependability and effectiveness for elderly care"
+    ],
+    "evidence_items": [
+      {
+        "claim": "Elderly people are more vulnerable to falls, which can result in serious injuries, a lower quality of life, and higher medical expenses.",
+        "paper_id": "10.1109_icmlas64557.2025.10968589",
+        "title": null,
+        "year": null,
+        "page_number": 1,
+        "quoted_text": "Elderly people are more vulnerable to falls, which can result in serious injuries, a lower quality of life, and higher medical expenses.",
+        "doi": null
+      },
+      {
+        "claim": "Recent advancements in deep learning have significantly improved fall detection capabilities.",
+        "paper_id": "10.1109_icmlas64557.2025.10968589",
+        "title": null,
+        "year": null,
+        "page_number": 1,
+        "quoted_text": "Recent advancements in deep learning have significantly improved fall detection capabilities by leveraging powerful computational models for data analysis and feature extraction.",
+        "doi": null
+      },
+      {
+        "claim": "The review investigates several deep learning techniques applied to sensor-based and video-based fall detection systems.",
+        "paper_id": "10.1109_icmlas64557.2025.10968589",
+        "title": null,
+        "year": null,
+        "page_number": 1,
+        "quoted_text": "The review also emphasizes the difficulties encountered in practical application, including data privacy and computing cost, and the need for robust datasets. Finally, future research directions are proposed to address current limitations and improve fall detection systems' dependability and effectiveness for elderly care.",
+        "doi": null
+      }
+    ]
+  },
+  {
+    "paper_id": "10.1109_iccsc67078.2026.11468781",
+    "title": "SCOUT: An AI-Powered Vision-Based Fall Detection System for Elderly Safety",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "Falling represents one of the largest public health threats to the elderly, and falls have become a major issue for the world's healthcare systems.",
+    "proposed_method": "SCOUT, a home-based, continuous, computer-vision based fall detection system which uses a YOLOv8n deep learning model for the purpose of privacy preserving monitoring at home.",
+    "input_type": "Vision-based",
+    "model_or_algorithm": "YOLOv8n deep learning model",
+    "datasets": [
+      "A publically available dataset was curated and expanded for training the SCOUT model, specifically for use in detecting falls in older adults."
+    ],
+    "metrics": {
+      "detection_accuracy": "93%",
+      "precision": "0.94",
+      "recall": "0.945",
+      "f1_score": "0.95"
+    },
+    "main_results": [
+      "SCOUT achieved the desired performance metrics of detection accuracy $=93$%, precision $=0.94$, recall $=0.945$ and $\text{F}1$ score $=\text{0.95}$"
+    ],
+    "main_contributions": [
+      "demonstrating robustness across various lighting, occlusion, and camera angle challenges"
+    ],
+    "author_limitations": [
+      "not reported"
+    ],
+    "inferred_limitations": [
+      "not reported"
+    ],
+    "privacy_notes": [
+      "providing strong user privacy protection by locally computing the object detector results and minimizing transmitted data"
+    ],
+    "deployment_notes": [
+      "designed for edge-based deployments, the SCOUT system also has scalable, affordable, and reliable operations in all resource limited environments."
+    ],
+    "future_work": [
+      "The results shown above clearly support that SCOUT is capable of adapting to different use cases, and therefore applicable to Smart Home and Elderly Care Monitoring applications."
+    ],
+    "evidence_items": [
+      {
+        "claim": "The SCOUT system uses a YOLOv8n deep learning model for fall detection.",
+        "paper_id": "10.1109_iccsc67078.2026.11468781",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "The SCOUT system uses a YOLOv8n deep learning model for the purpose of privacy preserving monitoring at home.",
+        "doi": null
+      },
+      {
+        "claim": "SCOUT achieved a detection accuracy of 93% with precision and recall of 0.94 and 0.945, and an F1 score of 0.95.",
+        "paper_id": "10.1109_iccsc67078.2026.11468781",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "SCOUT achieved the desired performance metrics of detection accuracy $=93$%, precision $=0.94$, recall $=0.945$ and $\text{F}1$ score $=\text{0.95}$",
+        "doi": null
+      },
+      {
+        "claim": "The system is designed for edge-based deployments.",
+        "paper_id": "10.1109_iccsc67078.2026.11468781",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "Because of its design for edge-based deployments, the SCOUT system also has scalable, affordable, and reliable operations in all resource limited environments.",
+        "doi": null
+      }
+    ]
+  },
+  {
+    "paper_id": "10.1145_3627631.3627650",
+    "title": "Hybrid SNN-based Privacy-Preserving Fall Detection using Neuromorphic Sensors",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "Privacy-preserving fall detection",
+    "proposed_method": "Hybrid framework, the 3D-CNN & SNN (NeuCube) approach, employing Spiking Neural Networks (SNN)",
+    "input_type": "Dynamic Vision Sensor (DVS)",
+    "model_or_algorithm": "Spiking Neural Networks (SNN)",
+    "datasets": [
+      "DVSFall"
+    ],
+    "metrics": {
+      "accuracy": "97.84% (hybrid approach)"
+    },
+    "main_results": [
+      "Achieved an accuracy of 94.59% with SNN",
+      "Improved accuracy to 97.84% using the hybrid approach"
+    ],
+    "main_contributions": [
+      "Introduced a novel event-based dataset named ‘DVSFall’",
+      "Explored a hybrid framework, the 3D-CNN & SNN (NeuCube) approach, for fall detection"
+    ],
+    "author_limitations": [
+      "not reported"
+    ],
+    "inferred_limitations": [
+      "not reported"
+    ],
+    "privacy_notes": [
+      "Employs the Dynamic Vision Sensor (DVS), which captures intensity changes without compromising individuals’ privacy."
+    ],
+    "deployment_notes": [
+      "not reported"
+    ],
+    "future_work": [
+      "not reported"
+    ],
+    "evidence_items": [
+      {
+        "claim": "method",
+        "paper_id": "10.1145_3627631.3627650",
+        "title": null,
+        "year": null,
+        "page_number": 3,
+        "quoted_text": "hybrid framework, the 3D-CNN & SNN (NeuCube) approach, for fall detection",
+        "doi": null
+      },
+      {
+        "claim": "dataset",
+        "paper_id": "10.1145_3627631.3627650",
+        "title": null,
+        "year": null,
+        "page_number": 2,
+        "quoted_text": "incorporating diverse daily living activities (ADL) and simulated falls. Captured from multiple viewpoints using DVS cameras, the dataset encompasses twenty-one participants across varying age groups.",
+        "doi": null
+      },
+      {
+        "claim": "results",
+        "paper_id": "10.1145_3627631.3627650",
+        "title": null,
+        "year": null,
+        "page_number": 2,
+        "quoted_text": "accuracy of 94.59% with SNN and notably improved to 97.84% using the hybrid approach, as measured against the recorded dataset.",
+        "doi": null
+      },
+      {
+        "claim": "privacy",
+        "paper_id": "10.1145_3627631.3627650",
+        "title": null,
+        "year": null,
+        "page_number": 1,
+        "quoted_text": "Employs the Dynamic Vision Sensor (DVS), which captures intensity changes without compromising individuals’ privacy.",
+        "doi": null
+      }
+    ]
+  },
+  {
+    "paper_id": "10.1007_s10015-023-00882-y",
+    "title": "Real-time monitoring of elderly people through computer vision",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "This paper explores the use of computer vision for real-time monitoring of elderly people.",
+    "proposed_method": "not reported",
+    "input_type": "not reported",
+    "model_or_algorithm": "not reported",
+    "datasets": [],
+    "metrics": {},
+    "main_results": [],
+    "main_contributions": [],
+    "author_limitations": [],
+    "inferred_limitations": [],
+    "privacy_notes": [],
+    "deployment_notes": [],
+    "future_work": [],
+    "evidence_items": []
+  },
+  {
+    "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+    "title": "Deep Hybrid Learning for Acoustic Fall Detection with Parallel Convolutional and Sequential Feature Modeling",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "Accurately distinguishing fall sounds from non-fall environmental noises remains challenging due to variations in background sound, reverberation, and differences in floor materials.",
+    "proposed_method": "The proposed work introduces a hybrid deep learning architecture combining Bidirectional Convolutional neural network (Bi-CNN) with Bidirectional Gated recurrent units (Bi-GRU) also called as Parallel Bi-CNN + Bi-GRU Network (PB-Bi CR-Net).",
+    "input_type": "acoustic signals",
+    "model_or_algorithm": "Bidirectional Convolutional neural network (Bi-CNN) with Bidirectional Gated recurrent units (Bi-GRU)",
+    "datasets": [
+      "not reported"
+    ],
+    "metrics": {
+      "accuracy": "significantly outperforms traditional classifiers, providing higher accuracy"
+    },
+    "main_results": [
+      "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments."
+    ],
+    "main_contributions": [
+      "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions."
+    ],
+    "author_limitations": [
+      "Traditional machine learning systems such as Logistic Regression Classifier (LRC), Adaptive Boosting Classifier (AdaBoost), Gradient Boosting Classifier (GBC) and Gaussian Naive Bayes Classifier (GNB) rely heavily on handcrafted audio features and simple decision boundaries. Although these models provide baseline performance, they struggle to capture the complex spectral–temporal patterns present in real fall events. Their dependency on manual feature engineering, inability to learn long-range temporal dependencies, and sensitivity to noise limit their reliability in real-world scenarios."
+    ],
+    "inferred_limitations": [
+      "These limitations highlight the need for a more robust and intelligent system capable of understanding both the spectral structure and temporal evolution of acoustic signals."
+    ],
+    "privacy_notes": [
+      "Fall detection using acoustic signals has gained significant attention due to its non-intrusive, privacy-preserving, and cost-effective nature."
+    ],
+    "deployment_notes": [
+      "This makes the system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions."
+    ],
+    "future_work": [
+      "not reported"
+    ],
+    "evidence_items": [
+      {
+        "claim": "Accurately distinguishing fall sounds from non-fall environmental noises remains challenging due to variations in background sound, reverberation, and differences in floor materials.",
+        "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+        "title": null,
+        "year": null,
+        "page_number": 1,
+        "quoted_text": "Fall detection using acoustic signals has gained significant attention due to its non-intrusive, privacy-preserving, and cost-effective nature. Unlike vision-based systems, audio-based fall monitoring can operate efficiently in low-light or occluded environments, making it suitable for smart homes and elderly-care applications. However, accurately distinguishing fall sounds from non-fall environmental noises remains challenging due to variations in background sound, reverberation, and differences in floor materials.",
+        "doi": null
+      },
+      {
+        "claim": "The proposed work introduces a hybrid deep learning architecture combining Bidirectional Convolutional neural network (Bi-CNN) with Bidirectional Gated recurrent units (Bi-GRU) also called as Parallel Bi-CNN + Bi-GRU Network (PB-Bi CR-Net).",
+        "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+        "title": null,
+        "year": null,
+        "page_number": 1,
+        "quoted_text": "To address this, the proposed work introduces a hybrid deep learning architecture combining Bidirectional Convolutional neural network (Bi-CNN) with Bidirectional Gated recurrent units (Bi-GRU) also called as Parallel Bi-CNN + Bi-GRU Network (PB-Bi CR-Net).",
+        "doi": null
+      },
+      {
+        "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+        "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+        "title": null,
+        "year": null,
+        "page_number": 1,
+        "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+        "doi": null
+      }
+    ]
+  },
+  {
+    "paper_id": "10.1109_uemcon67449.2025.11267584",
+    "title": "Human-Centric Edge Intelligence with Gaussian Splatting for Privacy-Aware Elderly Care",
+    "year": null,
+    "venue": null,
+    "doi": null,
+    "selected_version": null,
+    "problem": "The growing elderly population makes it challenging to provide safe, effective, and respectful healthcare, especially for those living alone or in assisted facilities.",
+    "proposed_method": "A people-focused, privacy-preserving edge monitoring framework using immersive modeling and multimodal sensing. It combines wearable devices, ambient sensors, and vision-based data streams with federated learning.",
+    "input_type": "multimodal datasets like UP-Fall",
+    "model_or_algorithm": "late-fusion models",
+    "datasets": [
+      "UP-Fall"
+    ],
+    "metrics": {
+      "recall": "superior fall-detection recall than unimodal baselines"
+    },
+    "main_results": [
+      "distinct activity signatures across modalities",
+      "late-fusion models show superior fall-detection recall than unimodal baselines"
+    ],
+    "main_contributions": [
+      "embedded Gaussian-based visual obfuscation",
+      "proof-of-concept Gaussian splatting module for anonymized 3D human modeling"
+    ],
+    "author_limitations": [
+      "issues with class imbalance and noise"
+    ],
+    "inferred_limitations": [
+      "not reported"
+    ],
+    "privacy_notes": [
+      "federated learning to let people train models together without sharing their raw personal data",
+      "privacy is further enforced through embedded Gaussian-based visual obfuscation"
+    ],
+    "deployment_notes": [
+      "edge monitoring framework"
+    ],
+    "future_work": [
+      "not reported"
+    ],
+    "evidence_items": [
+      {
+        "claim": "The framework uses federated learning to let people train models together without sharing their raw personal data.",
+        "paper_id": "10.1109_uemcon67449.2025.11267584",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "It combines wearable devices, ambient sensors, and vision-based data streams with federated learning to enable decentralized, collaborative model training without exposing raw personal data.",
+        "doi": null
+      },
+      {
+        "claim": "The framework combines wearable devices, ambient sensors, and vision-based data streams with federated learning.",
+        "paper_id": "10.1109_uemcon67449.2025.11267584",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "The framework uses immersive modeling and multimodal sensing. It combines wearable devices, ambient sensors, and vision-based data streams with federated learning.",
+        "doi": null
+      },
+      {
+        "claim": "The Gaussian splatting module is for anonymized 3D human modeling.",
+        "paper_id": "10.1109_uemcon67449.2025.11267584",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "Herein, privacy is further enforced through embedded Gaussian-based visual obfuscation and a proof-of-concept Gaussian splatting module for anonymized 3D human modeling.",
+        "doi": null
+      },
+      {
+        "claim": "The system performs well on UP-Fall dataset.",
+        "paper_id": "10.1109_uemcon67449.2025.11267584",
+        "title": null,
+        "year": null,
+        "page_number": null,
+        "quoted_text": "The proposed strategy has been tested on multimodal datasets like UP-Fall and has been shown to perform well.",
+        "doi": null
+      }
+    ]
+  }
+]

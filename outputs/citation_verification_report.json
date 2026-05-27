@@ -1,0 +1,400 @@
+{
+  "total_claims": 28,
+  "supported_claims": 28,
+  "partially_supported_claims": 0,
+  "unsupported_claims": 0,
+  "too_strong_claims": 0,
+  "claims": [
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "Fall detection using acoustic signals has gained significant attention due to its non-intrusive, privacy-preserving, and cost-effective nature.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "To address this, the proposed work introduces a hybrid deep learning architecture combining Bidirectional Convolutional neural network (Bi-CNN) with Bidirectional Gated recurrent units (Bi-GRU) also called as Parallel Bi-CNN + Bi-GRU Network (PB-Bi CR-Net).",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "To address this, the proposed work introduces a hybrid deep learning architecture combining Bidirectional Convolutional neural network (Bi-CNN) with Bidirectional Gated recurrent units (Bi-GRU) also called as Parallel Bi-CNN + Bi-GRU Network (PB-Bi CR-Net).",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is supported by the paper's introduction and the proposed method, which focuses on acoustic fall detection.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The framework uses immersive modeling and multimodal sensing.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "The framework uses immersive modeling and multimodal sensing. It combines wearable devices, ambient sensors, and vision-based data streams with federated learning.",
+          "paper_id": "10.1109_uemcon67449.2025.11267584",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "The framework uses immersive modeling and multimodal sensing. It combines wearable devices, ambient sensors, and vision-based data streams with federated learning.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly stated in the paper's description of the framework.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The Gaussian splatting module is for anonymized 3D human modeling.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "Herein, privacy is further enforced through embedded Gaussian-based visual obfuscation and a proof-of-concept Gaussian splatting module for anonymized 3D human modeling.",
+          "paper_id": "10.1109_uemcon67449.2025.11267584",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Herein, privacy is further enforced through embedded Gaussian-based visual obfuscation and a proof-of-concept Gaussian splatting module for anonymized 3D human modeling.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is explicitly stated in the paper's description of the privacy-preserving techniques.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system performs well on UP-Fall dataset.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "The proposed strategy has been tested on multimodal datasets like UP-Fall and has been shown to perform well.",
+          "paper_id": "10.1109_uemcon67449.2025.11267584",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "The proposed strategy has been tested on multimodal datasets like UP-Fall and has been shown to perform well.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is supported by the paper's experimental results on the UP-Fall dataset.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "Federated learning to let people train models together without sharing their raw personal data.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "It combines wearable devices, ambient sensors, and vision-based data streams with federated learning to enable decentralized, collaborative model training without exposing raw personal data.",
+          "paper_id": "10.1109_uemcon67449.2025.11267584",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "It combines wearable devices, ambient sensors, and vision-based data streams with federated learning to enable decentralized, collaborative model training without exposing raw personal data.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's description of the federated learning approach.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "Privacy is further enforced through embedded Gaussian-based visual obfuscation.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "privacy is further enforced through embedded Gaussian-based visual obfuscation",
+          "paper_id": "10.1109_uemcon67449.2025.11267584",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "privacy is further enforced through embedded Gaussian-based visual obfuscation",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's description of the privacy-preserving techniques.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The proposed strategy has been tested on multimodal datasets like UP-Fall and has been shown to perform well.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    },
+    {
+      "claim": "The system highly effective for real-time fall event classification, contributing to safer and more reliable healthcare monitoring solutions.",
+      "status": "supported",
+      "supporting_evidence": [
+        {
+          "claim": "PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "paper_id": "10.62643_10.62643_ijerst.2026.v22.n2_1_.2626",
+          "title": null,
+          "year": null,
+          "page_number": null,
+          "quoted_text": "Experimental evaluation demonstrates that the proposed PB-Bi CR-Net significantly outperforms traditional classifiers, providing higher accuracy, robustness to background noise, and better generalization across environments.",
+          "doi": null
+        }
+      ],
+      "explanation": "This claim is directly supported by the paper's results regarding the performance of the PB-Bi CR-Net model.",
+      "suggested_revision": null
+    }
+  ]
+}

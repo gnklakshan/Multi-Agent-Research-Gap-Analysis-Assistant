@@ -34,13 +34,16 @@ def verify_citations(
     summaries: List[PaperSummary],
     k: int = 6,
 ) -> VerificationReport:
-    llm = get_llm().with_structured_output(VerificationReport)
+    llm = get_llm().with_structured_output(VerificationReport, method="function_calling")
     claims = _extract_candidate_claims(related_work_md)
 
     evidence_blocks: List[str] = []
     if vectorstore is not None:
         for c in claims[:20]:
-            docs = vectorstore.similarity_search(c, k=k, fetch_k=max(20, k * 3))
+            try:
+                docs = vectorstore.similarity_search(c, k=k, fetch_k=max(20, k * 3))
+            except TypeError:
+                docs = vectorstore.similarity_search(c, k=k)
             block = []
             for d in docs:
                 md = getattr(d, "metadata", {}) or {}

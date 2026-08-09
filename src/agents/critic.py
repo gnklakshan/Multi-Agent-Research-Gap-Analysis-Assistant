@@ -11,7 +11,7 @@ from ..prompts.critic_prompt import CRITIC_SYSTEM_PROMPT
 
 
 def critique_paper(summary: PaperSummary) -> PaperCritique:
-    llm = get_llm().with_structured_output(PaperCritique)
+    llm = get_llm().with_structured_output(PaperCritique, method="function_calling")
     prompt = f"""PaperSummary JSON:
 {summary.model_dump_json(indent=2)}
 

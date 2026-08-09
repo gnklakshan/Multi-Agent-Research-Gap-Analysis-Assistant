@@ -10,7 +10,7 @@ Rules:
 - Be conservative; avoid sweeping claims unless strongly supported.
 
 Output format:
-Return three markdown sections separated EXACTLY by a line containing:
+Return four markdown sections separated EXACTLY by a line containing:
 
 ---
 

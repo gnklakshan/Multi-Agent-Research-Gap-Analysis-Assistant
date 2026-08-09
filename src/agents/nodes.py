@@ -62,6 +62,7 @@ def create_search_papers_node():
 
         good = [p for p in raw if p.get("title")]
         if not good:
+            # Try cache first
             cached_path = output_dir / "candidate_papers.json"
             cached = read_json(cached_path, default=[]) or []
             if cached:
@@ -72,10 +73,20 @@ def create_search_papers_node():
                 state["warnings"] = warns
                 console.log("[yellow]search_papers: live search failed; using cached candidate_papers.json[/yellow]")
                 return {"candidate_papers": cached}
-            raise RuntimeError(
-                "Semantic Scholar search failed or returned no usable papers. "
-                "Add SEMANTIC_SCHOLAR_API_KEY or retry later; no cache available."
+            # No results and no cache — stop pipeline gracefully with a user-readable message
+            msg = (
+                "Semantic Scholar is rate-limiting requests (HTTP 429). "
+                "No cached results available for this topic yet.\n\n"
+                "To fix this, choose one of:\n"
+                "  1. Add SEMANTIC_SCHOLAR_API_KEY=<your_key> to your .env file "
+                "(free key at https://www.semanticscholar.org/product/api).\n"
+                "  2. Wait ~60 seconds and click Launch again — results will be cached after the first successful run.\n"
+                "  3. Enable 'Fast (Abstract Only)' mode and retry — it uses a lighter query."
             )
+            console.log(f"[red]search_papers: fatal — {msg}[/red]")
+            errs = state.get("errors") or []
+            errs.append(msg)
+            return {"errors": errs, "__fatal_error__": msg}
 
         deduped = dedupe_papers(good)
         ensure_dir(output_dir)
@@ -118,7 +129,7 @@ def create_resolve_versions_node():
     def node(state: Dict[str, Any]) -> Dict[str, Any]:
         console.log("[bold]resolve_versions[/bold]")
         output_dir = Path(state.get("output_dir") or OUTPUT_DIR)
-        papers = resolve_versions(state.get("selected_papers") or [])
+        papers = state.get("selected_papers") or []
 
         if UNPAYWALL_EMAIL:
             for p in papers:
@@ -135,9 +146,11 @@ def create_resolve_versions_node():
                     warns.append(f"unpaywall_failed for DOI {doi}: {type(e).__name__}: {e}")
                     state["warnings"] = warns
 
+        resolved = resolve_versions(papers)
+
         ensure_dir(output_dir)
-        write_json(output_dir / "version_resolution.json", papers)
-        return {"selected_papers": papers}
+        write_json(output_dir / "version_resolution.json", resolved)
+        return {"selected_papers": resolved}
 
     return node
 
@@ -146,15 +159,22 @@ def create_download_pdfs_node():
     def node(state: Dict[str, Any]) -> Dict[str, Any]:
         console.log("[bold]download_pdfs[/bold]")
         output_dir = Path(state.get("output_dir") or OUTPUT_DIR)
+        selected = state.get("selected_papers") or []
         if state.get("skip_download") or state.get("abstract_only"):
             console.log("[yellow]Skipping downloads (abstract-only/skip-download enabled)[/yellow]")
             warns = state.get("warnings") or []
             warns.append("PDF downloading skipped; results will be metadata/abstract-grounded only.")
             state["warnings"] = warns
-            downloaded = [dict(p, downloaded=False, download_error="skipped") for p in (state.get("selected_papers") or [])]
+            downloaded = []
+            for p in selected:
+                record = dict(p)
+                record["downloaded"] = False
+                record["download_error"] = "skipped"
+                record["local_pdf_path"] = None
+                downloaded.append(record)
         else:
             downloaded = download_pdfs(
-                state.get("selected_papers") or [],
+                selected,
                 papers_dir=str(Path("data") / "papers"),
                 metadata_path=str(Path("data") / "metadata" / "downloaded_papers.json"),
             )
@@ -315,6 +335,7 @@ def create_verify_citations_node():
                 state["topic"],
                 state.get("paper_summaries") or [],
                 state["gap_report"],
+                verification_report=report,
             )
             (output_dir / "related_work_verified.md").write_text(revised_related, encoding="utf-8")
             state["_revised_once"] = True

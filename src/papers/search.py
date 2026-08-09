@@ -63,8 +63,13 @@ def search_papers(
     """
     Searches Semantic Scholar Graph API for each query and returns a flat list of paper metadata dicts.
     Continues on errors and returns whatever it can retrieve.
+
+    Without an API key the public endpoint allows roughly 1 req/s with a hard burst
+    cap, so we default to 5 s between queries and respect Retry-After on 429.
     """
-    limiter = RateLimiter(min_interval_s=min_interval_s)
+    # Use a conservative gap when running without an API key to avoid 429s
+    effective_interval = min_interval_s if api_key else max(min_interval_s, 5.0)
+    limiter = RateLimiter(min_interval_s=effective_interval)
     fields = ",".join(REQUIRED_FIELDS)
     results: List[Dict[str, Any]] = []
     session = requests.Session()
@@ -80,10 +85,22 @@ def search_papers(
                 params=params,
                 timeout_s=timeout_s,
             )
+            # If still 429 after retries, respect Retry-After and skip this query
+            if resp.status_code == 429:
+                retry_after = resp.headers.get("Retry-After")
+                sleep_s = float(retry_after) if retry_after and str(retry_after).isdigit() else 15.0
+                log.warning(
+                    "Semantic Scholar 429 on query '%s'; sleeping %.0fs before next query", q, sleep_s
+                )
+                time.sleep(sleep_s)
+                results.append({
+                    "paperId": None, "title": None, "abstract": None,
+                    "error": "rate_limited_429", "query_used": q,
+                })
+                continue
             resp.raise_for_status()
             payload = resp.json()
             for p in payload.get("data", []) or []:
-                # Normalize a few fields defensively
                 p["query_used"] = q
                 results.append(p)
         except Exception as e:
@@ -114,18 +131,19 @@ def dedupe_papers(papers: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     for p in papers:
         if not p.get("title"):
             continue
+        title_key = _normalize_title(p.get("title") or "")
+        if title_key in seen_title:
+            continue
+
         ext = p.get("externalIds") or {}
         doi = ext.get("DOI") if isinstance(ext, dict) else None
         if doi:
-            key = doi.lower().strip()
-            if key in seen_doi:
+            doi_key = doi.lower().strip()
+            if doi_key in seen_doi:
                 continue
-            seen_doi.add(key)
-        else:
-            key = _normalize_title(p.get("title") or "")
-            if key in seen_title:
-                continue
-            seen_title.add(key)
+            seen_doi.add(doi_key)
+
+        seen_title.add(title_key)
         out.append(p)
     return out
 
@@ -137,24 +155,25 @@ def _get_with_retry(
     headers: Dict[str, str],
     params: Dict[str, str],
     timeout_s: int,
-    max_retries: int = 3,
+    max_retries: int = 2,
 ) -> requests.Response:
-    backoff = 1.5
+    """HTTP GET with exponential backoff. Returns the final response even on 429
+    so the caller can inspect the status code and Retry-After header."""
+    backoff = 2.0
     last_exc: Optional[Exception] = None
     for attempt in range(max_retries + 1):
         try:
             resp = session.get(url, headers=headers, params=params, timeout=timeout_s)
-            if resp.status_code in {429, 500, 502, 503, 504} and attempt < max_retries:
-                retry_after = resp.headers.get("Retry-After")
-                sleep_s = float(retry_after) if retry_after and retry_after.isdigit() else (backoff**attempt)
-                time.sleep(min(10.0, sleep_s))
+            # Only retry on transient server errors, not 429 (handled by caller)
+            if resp.status_code in {500, 502, 503, 504} and attempt < max_retries:
+                time.sleep(min(12.0, backoff ** (attempt + 1)))
                 continue
             return resp
         except Exception as e:
             last_exc = e
             if attempt >= max_retries:
                 break
-            time.sleep(min(10.0, backoff**attempt))
+            time.sleep(min(12.0, backoff ** (attempt + 1)))
     raise RuntimeError(f"request_failed after retries: {last_exc}")
 
 

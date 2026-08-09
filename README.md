@@ -70,64 +70,107 @@ outputs/                # Reports and JSON artifacts
 tests/                  # Basic unit tests
 ```
 
-## Setup
+## Setup & Installation
 
-Prereqs: Python 3.10+, plus either OpenAI API key or local Ollama.
+### Prereqs
+* Python 3.10+
+* OpenAI API Key (or ChatGPT API Key)
 
-Install:
+### Step 1: Create & Activate Virtual Environment (`.venv`)
 
-```bash
-pip install -e .
+**On Windows (PowerShell / CMD):**
+```powershell
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+.venv\Scripts\activate
 ```
 
-Create `.env`:
+**On macOS / Linux:**
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+source .venv/bin/activate
+```
+
+---
+
+### Step 2: Install Dependencies
+
+With `.venv` activated, install the project and NiceGUI web framework:
 
 ```bash
-OPENAI_API_KEY=...
-SEMANTIC_SCHOLAR_API_KEY=...   # optional
-UNPAYWALL_EMAIL=...            # optional (required by Unpaywall policy)
+pip install -e . nicegui
+```
+
+Alternatively, run directly via the venv python executable:
+```bash
+.venv\Scripts\python.exe -m pip install -e . nicegui
+```
+
+---
+
+### Step 3: Configure Environment (.env)
+
+Edit the `.env` file in the project root directory and insert your OpenAI/ChatGPT API Key:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+# or CHATGPT_API_KEY=your_chatgpt_api_key_here
+
 LLM_PROVIDER=openai
 EMBEDDING_PROVIDER=openai
 OPENAI_MODEL=gpt-4o-mini
 EMBEDDING_MODEL=text-embedding-3-small
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=gemma4:3b
-OLLAMA_EMBEDDING_MODEL=nomic-embed-text
-SEMANTIC_SCHOLAR_MAX_QUERIES=4
-SEMANTIC_SCHOLAR_LIMIT_PER_QUERY=20
-SEMANTIC_SCHOLAR_MIN_INTERVAL_S=2.0
-MAX_PAPERS=10
-FAISS_INDEX_PATH=data/index/faiss_research_papers
-OUTPUT_DIR=outputs
 ```
 
-Local-only Ollama example:
+---
+
+## How to Run the System
+
+### Option A: Interactive Web UI (Recommended)
+
+Run the unified UI launcher (launches both the web application and the multi-agent backend):
 
 ```bash
-LLM_PROVIDER=ollama
-EMBEDDING_PROVIDER=ollama
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=gemma4:3b
-OLLAMA_EMBEDDING_MODEL=nomic-embed-text
+# Using activated venv:
+python run_ui.py
+
+# Or directly:
+.venv\Scripts\python.exe run_ui.py
 ```
 
-## Run (CLI)
+Then open your browser at:
+**`http://localhost:8085`**
+
+* Features: 4-phase visual execution stepper, hero prompt card with curated quick-topics, live paper ranking & summary inspector, and full manuscript viewer.
+
+---
+
+### Option B: Command Line Interface (CLI)
+
+To run the pipeline directly in your terminal:
 
 ```bash
+# Using activated venv:
 python -m src.main --topic "privacy-preserving vision-based fall detection for elderly care" --max-papers 8
+
+# Or directly:
+.venv\Scripts\python.exe -m src.main --topic "privacy-preserving vision-based fall detection for elderly care" --max-papers 8
 ```
 
-Useful flags:
+Useful CLI Flags:
+* `--abstract-only`: Metadata/abstract grounding only (no PDF downloads/indexing).
+* `--skip-download`: Skip full PDF downloading.
+* `--max-papers 8`: Max paper count to search and rank.
+* `--verbose`: Output detailed terminal logs.
 
-- `--output-dir outputs`
-- `--index-path data/index/faiss_research_papers`
-- `--abstract-only` (no downloads/indexing; metadata-only)
-- `--skip-download` (keeps pipeline best-effort)
-- `--verbose`
+---
 
-Outputs are written to `OUTPUT_DIR`, including `final_report.md` and `run_summary.json`.
-
-## Run (API, optional)
+### Option C: REST API (FastAPI, optional)
 
 ```bash
 uvicorn src.api.app:app --reload

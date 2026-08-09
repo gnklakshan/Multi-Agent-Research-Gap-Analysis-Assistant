@@ -12,7 +12,7 @@ from ..prompts.gap_analysis_prompt import GAP_ANALYSIS_SYSTEM_PROMPT
 
 
 def analyze_gaps(topic: str, summaries: List[PaperSummary], critiques: List[PaperCritique]) -> GapAnalysisReport:
-    llm = get_llm().with_structured_output(GapAnalysisReport)
+    llm = get_llm().with_structured_output(GapAnalysisReport, method="function_calling")
     prompt = f"""Topic:
 {topic}
 

@@ -19,6 +19,11 @@ class Settings(BaseSettings):
     SEMANTIC_SCHOLAR_API_KEY: Optional[str] = None
     UNPAYWALL_EMAIL: Optional[str] = None
 
+    def model_post_init(self, __context):
+        import os
+        if not self.OPENAI_API_KEY:
+            self.OPENAI_API_KEY = os.environ.get("CHATGPT_API_KEY") or os.environ.get("OPENAI_API_KEY")
+
     LLM_PROVIDER: str = "openai"
     EMBEDDING_PROVIDER: str = "openai"
 

@@ -29,7 +29,7 @@ def summarize_paper(
     vectorstore=None,
     k: int = 8,
 ) -> PaperSummary:
-    llm = get_llm().with_structured_output(PaperSummary)
+    llm = get_llm().with_structured_output(PaperSummary, method="function_calling")
     paper_id = paper["paper_id"]
     title = paper.get("title") or "unknown title"
 

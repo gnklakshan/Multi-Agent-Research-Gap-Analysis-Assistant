@@ -125,20 +125,21 @@ def _dedupe(papers: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     seen_title = set()
     out: List[Dict[str, Any]] = []
     for p in papers:
-        external = p.get("externalIds") or {}
-        doi = external.get("DOI") if isinstance(external, dict) else None
         title = p.get("title") or ""
         tnorm = _normalize_title(title)
+        if tnorm and tnorm in seen_title:
+            continue
+
+        external = p.get("externalIds") or {}
+        doi = external.get("DOI") if isinstance(external, dict) else None
         if doi:
-            key = doi.lower().strip()
-            if key in seen_doi:
+            doi_key = doi.lower().strip()
+            if doi_key in seen_doi:
                 continue
-            seen_doi.add(key)
-        else:
-            if tnorm and tnorm in seen_title:
-                continue
-            if tnorm:
-                seen_title.add(tnorm)
+            seen_doi.add(doi_key)
+
+        if tnorm:
+            seen_title.add(tnorm)
         out.append(p)
     return out
 

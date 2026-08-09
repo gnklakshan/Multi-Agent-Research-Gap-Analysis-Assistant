@@ -272,22 +272,129 @@ def create_ui():
                             if p.get("externalIds", {}).get("DOI"):
                                 ui.label(f"🔗 DOI: {p['externalIds']['DOI']}")
 
-        # Update Research Gaps
+        # Update Research Gaps — reads from state first, then falls back to file
         elif node_name == "analyze_gaps":
-            gaps_file = out_dir / "gap_analysis_report.json"
-            if gaps_file.exists():
-                gaps_data = read_json(gaps_file, default={})
-                gap_items = gaps_data.get("gaps", [])
-                app_state["gaps_count"] = len(gap_items)
-                metric_gap_count.set_text(str(len(gap_items)))
+            gap_report_obj = state_update.get("gap_report")
+            if gap_report_obj is not None:
+                if hasattr(gap_report_obj, "model_dump"):
+                    gaps_data = gap_report_obj.model_dump()
+                else:
+                    gaps_data = gap_report_obj
+            else:
+                gaps_file = out_dir / "gap_analysis_report.json"
+                gaps_data = read_json(gaps_file, default={}) if gaps_file.exists() else {}
 
-                gaps_container.clear()
-                with gaps_container:
-                    ui.label("Identified Research Gap Clusters").classes("text-sm font-bold text-amber-300 mb-2")
-                    for gap in gap_items:
-                        with ui.column().classes("glass-card p-3 border-l-4 border-l-amber-500 w-full mb-2"):
-                            ui.label(f"💡 {gap.get('title')}").classes("text-xs font-bold text-amber-200")
-                            ui.label(gap.get("description", "")).classes("text-3xs text-slate-300 mt-1")
+            # CORRECT KEY: schema uses "common_gaps" not "gaps"
+            gap_items = gaps_data.get("common_gaps") or gaps_data.get("gaps") or []
+            app_state["gaps_count"] = len(gap_items)
+            metric_gap_count.set_text(str(len(gap_items)))
+
+            gaps_container.clear()
+            with gaps_container:
+                ui.label(f"Research Gap Clusters ({len(gap_items)} identified)").classes(
+                    "text-sm font-bold text-amber-300 mb-3"
+                )
+                for gap in gap_items:
+                    pub_level = gap.get("publication_level", "either")
+                    acad_depth = gap.get("academic_depth", "MSc/PhD")
+                    novelty = gap.get("novelty_score", 5)
+                    strength = gap.get("strength_of_evidence", "medium")
+
+                    pub_color = {"journal": "cyan", "conference": "purple", "either": "indigo"}.get(pub_level, "indigo")
+                    depth_color = {"BSc/MSc": "emerald", "MSc/PhD": "amber", "PhD/Postdoc": "red"}.get(acad_depth, "amber")
+                    strength_color = {"high": "emerald", "medium": "amber", "low": "red"}.get(strength, "amber")
+
+                    with ui.column().classes("glass-card p-4 border-l-4 border-l-amber-500 w-full mb-4 gap-3"):
+                        # Header
+                        with ui.row().classes("justify-between items-start w-full"):
+                            ui.label(f"💡 {gap.get('gap_name', gap.get('title', 'Research Gap'))}").classes(
+                                "text-sm font-bold text-amber-200 flex-1 mr-3"
+                            )
+                            with ui.row().classes("gap-1 flex-wrap shrink-0"):
+                                ui.badge(pub_level.upper(), color=pub_color).classes("text-3xs font-bold")
+                                ui.badge(acad_depth, color=depth_color).classes("text-3xs font-bold")
+                                ui.badge(f"Evidence: {strength}", color=strength_color).classes("text-3xs")
+
+                        ui.label(gap.get("description", "")).classes("text-xs text-slate-300 leading-relaxed")
+
+                        if gap.get("why_it_matters"):
+                            with ui.row().classes("items-start gap-2 bg-slate-900/50 p-2 rounded-lg"):
+                                ui.icon("info", color="sky", size="xs").classes("shrink-0 mt-0.5")
+                                ui.label(f"Why it matters: {gap['why_it_matters']}").classes(
+                                    "text-3xs text-sky-200 italic"
+                                )
+
+                        # Novelty score bar
+                        with ui.column().classes("gap-1 w-full"):
+                            with ui.row().classes("justify-between"):
+                                ui.label("Novelty Score").classes("text-3xs text-slate-400 font-semibold")
+                                ui.label(f"{novelty}/10").classes("text-3xs text-amber-300 font-bold")
+                            novelty_pct = novelty * 10
+                            bar_color = "#ef4444" if novelty >= 8 else "#f59e0b" if novelty >= 5 else "#6366f1"
+                            ui.html(
+                                f'<div style="background:#1e293b;border-radius:4px;height:6px;width:100%">'
+                                f'<div style="background:{bar_color};border-radius:4px;height:6px;'
+                                f'width:{novelty_pct}%;transition:width 0.5s ease"></div></div>'
+                            )
+
+                        # Research Paths
+                        paths = gap.get("research_paths") or []
+                        if paths:
+                            with ui.expansion("Research Directions & Starting Points", icon="fork_right").classes(
+                                "w-full bg-slate-900/60 rounded-xl border border-slate-700/40 text-xs"
+                            ):
+                                with ui.column().classes("gap-3 p-2"):
+                                    for i, path in enumerate(paths, 1):
+                                        with ui.column().classes(
+                                            "bg-indigo-950/40 border border-indigo-800/30 p-3 rounded-lg gap-1"
+                                        ):
+                                            ui.label(f"Path {i}: {path.get('title')}").classes(
+                                                "text-xs font-bold text-indigo-200"
+                                            )
+                                            ui.label(path.get("description", "")).classes(
+                                                "text-3xs text-slate-300 leading-relaxed"
+                                            )
+                                            with ui.row().classes("gap-2 mt-1 flex-wrap"):
+                                                if path.get("methodology_hint"):
+                                                    with ui.row().classes(
+                                                        "items-center gap-1 bg-slate-800/60 px-2 py-0.5 rounded"
+                                                    ):
+                                                        ui.icon("build", color="cyan", size="2xs")
+                                                        ui.label(f"Method: {path['methodology_hint']}").classes(
+                                                            "text-3xs text-cyan-300"
+                                                        )
+                                                if path.get("expected_contribution"):
+                                                    with ui.row().classes(
+                                                        "items-center gap-1 bg-slate-800/60 px-2 py-0.5 rounded"
+                                                    ):
+                                                        ui.icon("star", color="amber", size="2xs")
+                                                        ui.label(f"Contribution: {path['expected_contribution']}").classes(
+                                                            "text-3xs text-amber-300"
+                                                        )
+
+                        # Challenges + Datasets
+                        challenges = gap.get("key_challenges") or []
+                        datasets = gap.get("suggested_datasets_or_benchmarks") or []
+                        if challenges or datasets:
+                            with ui.row().classes("gap-3 w-full"):
+                                if challenges:
+                                    with ui.column().classes("flex-1 gap-1"):
+                                        ui.label("Key Challenges").classes(
+                                            "text-3xs font-bold text-red-300 uppercase tracking-wider"
+                                        )
+                                        for ch in challenges:
+                                            with ui.row().classes("items-start gap-1"):
+                                                ui.icon("warning_amber", color="red", size="2xs").classes("shrink-0 mt-0.5")
+                                                ui.label(ch).classes("text-3xs text-slate-300")
+                                if datasets:
+                                    with ui.column().classes("flex-1 gap-1"):
+                                        ui.label("Datasets / Benchmarks").classes(
+                                            "text-3xs font-bold text-emerald-300 uppercase tracking-wider"
+                                        )
+                                        for ds in datasets:
+                                            with ui.row().classes("items-start gap-1"):
+                                                ui.icon("dataset", color="emerald", size="2xs").classes("shrink-0 mt-0.5")
+                                                ui.label(ds).classes("text-3xs text-slate-300")
 
         # Update Comparison Table
         elif node_name == "compare_papers":

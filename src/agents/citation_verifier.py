@@ -34,7 +34,7 @@ def verify_citations(
     summaries: List[PaperSummary],
     k: int = 6,
 ) -> VerificationReport:
-    llm = get_llm().with_structured_output(VerificationReport)
+    llm = get_llm().with_structured_output(VerificationReport, method="function_calling")
     claims = _extract_candidate_claims(related_work_md)
 
     evidence_blocks: List[str] = []

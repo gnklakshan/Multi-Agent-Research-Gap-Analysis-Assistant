@@ -62,6 +62,7 @@ def create_search_papers_node():
 
         good = [p for p in raw if p.get("title")]
         if not good:
+            # Try cache first
             cached_path = output_dir / "candidate_papers.json"
             cached = read_json(cached_path, default=[]) or []
             if cached:
@@ -72,10 +73,20 @@ def create_search_papers_node():
                 state["warnings"] = warns
                 console.log("[yellow]search_papers: live search failed; using cached candidate_papers.json[/yellow]")
                 return {"candidate_papers": cached}
-            raise RuntimeError(
-                "Semantic Scholar search failed or returned no usable papers. "
-                "Add SEMANTIC_SCHOLAR_API_KEY or retry later; no cache available."
+            # No results and no cache — stop pipeline gracefully with a user-readable message
+            msg = (
+                "Semantic Scholar is rate-limiting requests (HTTP 429). "
+                "No cached results available for this topic yet.\n\n"
+                "To fix this, choose one of:\n"
+                "  1. Add SEMANTIC_SCHOLAR_API_KEY=<your_key> to your .env file "
+                "(free key at https://www.semanticscholar.org/product/api).\n"
+                "  2. Wait ~60 seconds and click Launch again — results will be cached after the first successful run.\n"
+                "  3. Enable 'Fast (Abstract Only)' mode and retry — it uses a lighter query."
             )
+            console.log(f"[red]search_papers: fatal — {msg}[/red]")
+            errs = state.get("errors") or []
+            errs.append(msg)
+            return {"errors": errs, "__fatal_error__": msg}
 
         deduped = dedupe_papers(good)
         ensure_dir(output_dir)

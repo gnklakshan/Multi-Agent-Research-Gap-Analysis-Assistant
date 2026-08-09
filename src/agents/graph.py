@@ -48,6 +48,7 @@ class ResearchState(TypedDict, total=False):
     final_report_path: Optional[str]
     errors: List[str]
     warnings: List[str]
+    __fatal_error__: Optional[str]  # set by any node to halt the pipeline gracefully
 
 
 def build_graph() -> Any:
@@ -71,7 +72,12 @@ def build_graph() -> Any:
     workflow.set_entry_point("expand_queries")
 
     workflow.add_edge("expand_queries", "search_papers")
-    workflow.add_edge("search_papers", "rank_papers")
+    # After search, route to END if a fatal error occurred (e.g. rate-limited with no cache)
+    workflow.add_conditional_edges(
+        "search_papers",
+        lambda state: END if state.get("__fatal_error__") else "rank_papers",
+        {END: END, "rank_papers": "rank_papers"},
+    )
     workflow.add_edge("rank_papers", "resolve_versions")
     workflow.add_edge("resolve_versions", "download_pdfs")
     workflow.add_edge("download_pdfs", "ingest_pdfs")

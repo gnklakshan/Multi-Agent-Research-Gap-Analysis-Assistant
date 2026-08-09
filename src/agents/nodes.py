@@ -118,7 +118,7 @@ def create_resolve_versions_node():
     def node(state: Dict[str, Any]) -> Dict[str, Any]:
         console.log("[bold]resolve_versions[/bold]")
         output_dir = Path(state.get("output_dir") or OUTPUT_DIR)
-        papers = resolve_versions(state.get("selected_papers") or [])
+        papers = state.get("selected_papers") or []
 
         if UNPAYWALL_EMAIL:
             for p in papers:
@@ -135,9 +135,11 @@ def create_resolve_versions_node():
                     warns.append(f"unpaywall_failed for DOI {doi}: {type(e).__name__}: {e}")
                     state["warnings"] = warns
 
+        resolved = resolve_versions(papers)
+
         ensure_dir(output_dir)
-        write_json(output_dir / "version_resolution.json", papers)
-        return {"selected_papers": papers}
+        write_json(output_dir / "version_resolution.json", resolved)
+        return {"selected_papers": resolved}
 
     return node
 
@@ -146,15 +148,22 @@ def create_download_pdfs_node():
     def node(state: Dict[str, Any]) -> Dict[str, Any]:
         console.log("[bold]download_pdfs[/bold]")
         output_dir = Path(state.get("output_dir") or OUTPUT_DIR)
+        selected = state.get("selected_papers") or []
         if state.get("skip_download") or state.get("abstract_only"):
             console.log("[yellow]Skipping downloads (abstract-only/skip-download enabled)[/yellow]")
             warns = state.get("warnings") or []
             warns.append("PDF downloading skipped; results will be metadata/abstract-grounded only.")
             state["warnings"] = warns
-            downloaded = [dict(p, downloaded=False, download_error="skipped") for p in (state.get("selected_papers") or [])]
+            downloaded = []
+            for p in selected:
+                record = dict(p)
+                record["downloaded"] = False
+                record["download_error"] = "skipped"
+                record["local_pdf_path"] = None
+                downloaded.append(record)
         else:
             downloaded = download_pdfs(
-                state.get("selected_papers") or [],
+                selected,
                 papers_dir=str(Path("data") / "papers"),
                 metadata_path=str(Path("data") / "metadata" / "downloaded_papers.json"),
             )
@@ -315,6 +324,7 @@ def create_verify_citations_node():
                 state["topic"],
                 state.get("paper_summaries") or [],
                 state["gap_report"],
+                verification_report=report,
             )
             (output_dir / "related_work_verified.md").write_text(revised_related, encoding="utf-8")
             state["_revised_once"] = True

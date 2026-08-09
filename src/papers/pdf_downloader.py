@@ -1,26 +1,14 @@
 from __future__ import annotations
 
-import hashlib
 import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 
+from .versioning import _paper_id
 from ..utils.json_io import write_json
 from ..utils.paths import ensure_dir, safe_filename
-
-
-def _paper_id(p: Dict[str, Any]) -> str:
-    ext = p.get("externalIds") or {}
-    doi = ext.get("DOI") if isinstance(ext, dict) else None
-    if doi:
-        return safe_filename(doi)
-    pid = p.get("paperId")
-    if pid:
-        return safe_filename(str(pid))
-    title = p.get("title") or "paper"
-    return hashlib.sha1(title.encode("utf-8")).hexdigest()[:12]
 
 
 def choose_pdf_url(p: Dict[str, Any]) -> Tuple[Optional[str], str, str]:

@@ -114,18 +114,19 @@ def dedupe_papers(papers: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     for p in papers:
         if not p.get("title"):
             continue
+        title_key = _normalize_title(p.get("title") or "")
+        if title_key in seen_title:
+            continue
+
         ext = p.get("externalIds") or {}
         doi = ext.get("DOI") if isinstance(ext, dict) else None
         if doi:
-            key = doi.lower().strip()
-            if key in seen_doi:
+            doi_key = doi.lower().strip()
+            if doi_key in seen_doi:
                 continue
-            seen_doi.add(key)
-        else:
-            key = _normalize_title(p.get("title") or "")
-            if key in seen_title:
-                continue
-            seen_title.add(key)
+            seen_doi.add(doi_key)
+
+        seen_title.add(title_key)
         out.append(p)
     return out
 

@@ -1,7 +1,23 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from typing import Any, Dict, List, Optional, Tuple
+
+from ..utils.paths import safe_filename
+
+
+def _paper_id(p: Dict[str, Any]) -> str:
+    ext = p.get("externalIds") or {}
+    doi = ext.get("DOI") if isinstance(ext, dict) else None
+    if doi:
+        return safe_filename(doi)
+    pid = p.get("paperId")
+    if pid:
+        return safe_filename(str(pid))
+    title = p.get("title") or "paper"
+    return hashlib.sha1(title.encode("utf-8")).hexdigest()[:12]
+
 
 
 PUBLISHED_TYPES = {
@@ -81,6 +97,7 @@ def resolve_versions(papers: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         version, reason = classify_version(p)
         pdf_url, pdf_source, pdf_reason = choose_pdf_candidate(p)
         p2 = dict(p)
+        p2["paper_id"] = _paper_id(p)
         p2["selected_version"] = version
         p2["version_reason"] = reason
         p2["pdf_candidate_url"] = pdf_url

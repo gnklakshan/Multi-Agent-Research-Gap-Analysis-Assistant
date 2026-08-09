@@ -40,7 +40,10 @@ def verify_citations(
     evidence_blocks: List[str] = []
     if vectorstore is not None:
         for c in claims[:20]:
-            docs = vectorstore.similarity_search(c, k=k, fetch_k=max(20, k * 3))
+            try:
+                docs = vectorstore.similarity_search(c, k=k, fetch_k=max(20, k * 3))
+            except TypeError:
+                docs = vectorstore.similarity_search(c, k=k)
             block = []
             for d in docs:
                 md = getattr(d, "metadata", {}) or {}
